@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "197427039395",
+    "project_id": "plu-sports-app",
+    "storage_bucket": "plu-sports-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:197427039395:android:a91868c0725ee619cf8316",
+        "android_client_info": {
+          "package_name": "com.example.capstone3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "197427039395-ivmt7lfs8sg7j6ivmef3ihjlqq4dlk4a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1sRBxJP5RWF5Vf2-toejoXSwuQoGHlRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "197427039395-ivmt7lfs8sg7j6ivmef3ihjlqq4dlk4a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
