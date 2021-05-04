@@ -28,6 +28,8 @@ dependencies:
   url_launcher: ^5.4.0
   system_settings: 2.0.0
   flutter_bloc: ^2.1.1
+  webview_flutter: ^1.0.5
+  flutter_webview_plugin:
   flutter:
     sdk: flutter
 

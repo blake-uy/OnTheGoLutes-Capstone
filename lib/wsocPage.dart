@@ -435,7 +435,7 @@ class _SliverAppBarWithTabs extends State<WSOCPage>
   void initState() {
     super.initState();
     controller = TabController(
-      length: 5,
+      length: 4,
       vsync: this,
     );
   }
@@ -497,9 +497,7 @@ class _SliverAppBarWithTabs extends State<WSOCPage>
                     child: Align(
                         alignment: Alignment.center,
                         child: Text("STATISTICS", style: TextStyle(fontWeight: FontWeight.bold)))),
-                Tab(
-                    child: Align(
-                        alignment: Alignment.center, child: Text("RECRUITS", style: TextStyle(fontWeight: FontWeight.bold)))),
+
               ],
               controller: controller,
             ),
@@ -533,19 +531,26 @@ class _SliverAppBarWithTabs extends State<WSOCPage>
                           ///////////////
                           // SCHEDULE //
                           //////////////
-
                           child: Column(children: <Widget>[
+                            //Image( image: NetworkImage(finalLogos[index])),
                             Text(
                               justOpponents[index],
                               style: TextStyle(
-                                  color: Colors.white, fontSize: 20.0),
+                                  color: Colors.white, fontSize: 19.5),
                             ),
                             SizedBox(height: 10.0),
                             Text(
-                              dateAndTime[index],
+                              //dateAndTime[index],
+                              months[index] + "  " + dayNumOnly[index],
                               style: TextStyle(
                                   fontSize: 15.0, color: Colors.white),
-                            )
+                            ),
+                            Text(
+                              "@" + " " + timeOnly[index],
+                              style: TextStyle(
+                                fontSize: 15.0, color: Colors.white),
+                              ),
+
                           ]),
                         );
                       },
@@ -554,6 +559,10 @@ class _SliverAppBarWithTabs extends State<WSOCPage>
                   )
                 ]),
                 // Center(child: Text("TAB ONE")),
+
+                /////////////
+                // ROSTER //
+                ////////////
                 Container(
                     color: Colors.black,
                     child: ListView.builder(
@@ -590,7 +599,7 @@ class _SliverAppBarWithTabs extends State<WSOCPage>
                                             " " +
                                             wsocPlayers[index].name,
                                         style: TextStyle(
-                                            fontSize: 26.0,
+                                            fontSize: 25,
                                             color: Colors.white),
                                         textAlign: TextAlign.center,
                                       ),
@@ -646,7 +655,7 @@ class _SliverAppBarWithTabs extends State<WSOCPage>
                             Column(children: <Widget>[
                               Text("Seth Spidahl",
                                   style: TextStyle(
-                                      fontSize: 31.0,
+                                      fontSize: 30,
                                       fontWeight: FontWeight.bold,
                                   color: Colors.white)),
                               Text("Head Coach",
@@ -759,7 +768,7 @@ class _SliverAppBarWithTabs extends State<WSOCPage>
                             Column(children: <Widget>[
                               Text("Nate Salveson",
                                 style: TextStyle(
-                                    fontSize: 28.9,
+                                    fontSize: 27,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               ),
@@ -775,7 +784,6 @@ class _SliverAppBarWithTabs extends State<WSOCPage>
 
 
                     ])),
-                Container(color: Colors.black, child: Center(child: Text("Data Coming Soon", style: TextStyle(color: Colors.white)))),
                 Container(color: Colors.black, child: Center(child: Text("Data Coming Soon", style: TextStyle(color: Colors.white)))),
               ],
             ),

@@ -11,6 +11,20 @@ List <String> gameInfo = [];
 List <String> justOpponents = [];
 List <String> dateAndTime = [];
 
+/////////////////////////////
+// Attempt to Scrap Logos //
+////////////////////////////
+List<Map<String, String>> logos = [];
+List <String> finalLogos = [];
+
+/////////////////////////////////////
+// For Separating the Date & Time //
+////////////////////////////////////
+List <String> months = [];
+List <String> dayNumOnly = [];
+List <String> timeOnly = [];
+
+
 ///////////////
 // OPTION 2 // => Create an Info Object
 //////////////
@@ -48,11 +62,11 @@ Future initiate(BaseClient client) async
 
   List links = document.querySelectorAll('div.sidearm-schedule-game-opponent-name > a');
 
-  List opponentLogo = document.querySelectorAll('img.lazyloaded');
+  List opponentLogo = document.querySelectorAll('div.sidearm-schedule-game-opponent-logo > img');
   //List<Element> links = document.querySelectorAll('div.sidearm-common-promotion > section.sidearm-schedule-record > ul.flex flex-wrap');
   //List<Element> links = document.querySelectorAll('div.sidearm-common-promotion sidearm-common-promotion-below-header');
   List<Map<String, String>> linkMap = [];
-  List<Map<String, dynamic>> logos = [];
+  //List<Map<String, dynamic>> logos = [];
 
   ///////////////////////////////
   // Opponent Name + Date/Time //
@@ -76,17 +90,25 @@ Future initiate(BaseClient client) async
   {
     logos.add(
         {
-          'Logo': x.attributes['src']
+          'Logo': x.attributes['data-src']
         }
     );
-
   }
 
-print(logos);
+  int y = 0;
+  for (var i in logos)
+  {
+
+    finalLogos.addAll(logos[y].values);
+    y++;
+  }
+
+//   print("LOGOS");
+// print(finalLogos);
 
  // Info.fromJson(Map<String, dynamic> json) : 'opponent' = json['Opponent'], 'link' = json['Link'];
 
-  print("MAP");
+ // print("MAP");
   //print(linkMap.length);
   //print(linkMap[0].values);
 
@@ -113,9 +135,24 @@ print(logos);
     dateAndTime.add(tempList[1]);
   }
 
+  for (int i = 0; i < dateAndTime.length; i++)
+    {
+      String temp = dateAndTime[i];
 
+      List <String> tempList = temp.split(" ");
+    //  print(tempList);
+
+      months.add(tempList[0]);
+      dayNumOnly.add(tempList[1]);
+      timeOnly.add(tempList[2]);
+      timeOnly.add(tempList[3]);
+
+    }
 
   print("GAME INFO");
+  print(months);
+  print(dayNumOnly);
+  print(timeOnly);
  // print(justOpponents);
  // print(dateAndTime);
   //print(gameInfo);

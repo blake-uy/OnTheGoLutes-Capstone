@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:system_settings/system_settings.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 /////////////////////////////
 // INDIVIDUAL SPORT PAGES //
@@ -36,6 +37,7 @@ import 'package:flutter/foundation.dart';
 //import 'package:google_fonts/google_fonts.dart';
 import 'playerPortal.dart';
 import 'pageview.dart';
+import 'instaPage.dart';
 
 //////////////////////////
 // WEB SCRAPING IMPORTS //
@@ -483,10 +485,33 @@ class _HomePage extends State<HomePage>
 
             ListTile(
               //tileColor: Colors.grey,
-              title: Text("Feedback", style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold, fontFamily: 'Quicksand')),
-              onTap: () {
-                Navigator.pop(context);
+              title: Text("Instagram", style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold, fontFamily: 'Quicksand')),
+             // enableFeedback: true,
+              onTap: () async => {
+                await launch('https://www.instagram.com/golutes/')
+
+
+
+               // Navigator.push(context, MaterialPageRoute(builder: (context) => Instagram()))
+                //await launch('https://www.instagram.com/golutes/')
+
+                // await Navigator.of(context).push(MaterialPageRoute(
+                //   builder: (BuildContext context) => Instagram(),
+                // ))
+
+               // Navigator.push(context, MaterialPageRoute(builder: (context) => Instagram()))
+
+                //_launchURL('https://twitter.com/golutes')
+              }
+            ),
+
+            ListTile(
+              title: Text("Twitter", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, fontFamily: 'Quicksand'),),
+              onTap: () async => {
+              //  await Navigator.push(context, MaterialPageRoute(builder: (context) => Instagram()))
+                await launch('https://twitter.com/golutes')
               },
+              enableFeedback: true,
             ),
 
             ListTile(
