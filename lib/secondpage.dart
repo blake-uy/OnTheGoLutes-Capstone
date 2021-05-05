@@ -491,19 +491,3 @@ List<BasePlayers> basePlayers = <BasePlayers>[
 
 
 ];
-
-class BaseCoaches
-{
-  BaseCoaches({this.name, this.title, this.image});
-  final String name;
-  final String title;
-  final NetworkImage image;
-}
-
-List<BaseCoaches> baseCoaches = <BaseCoaches>[
-  BaseCoaches(name: "Nolan Soete", title: "Head Coach", image: NetworkImage('https://golutes.com/images/2018/4/24//soete.jpg?width=80')),
-  BaseCoaches(name: "Sean Taunt", title: "Associate Head Coach", image: NetworkImage('https://golutes.com/images/2018/4/24//taunt.jpg?width=80')),
-  BaseCoaches(name: "Scott Richards", title: "Assistant Coach", image: NetworkImage('https://golutes.com/images/2018/4/24//richards.jpg?width=80')),
-  BaseCoaches(name: "Landon Packard", title: "Assistant Coach", image: NetworkImage('https://golutes.com/images/2018/4/24//landon_packard_bsb_2016_17.jpg?width=80')),
-  BaseCoaches(name: "Corey Nelson", title: "Assistant Coach", image: NetworkImage('https://golutes.com/images/2018/4/24//cory_nelson_bsb_2015_16.jpg?width=80')),
-];
