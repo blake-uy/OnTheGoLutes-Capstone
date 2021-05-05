@@ -13,7 +13,7 @@ class _SliverAppBarWithTabs extends State<MXCPage> with SingleTickerProviderStat
   void initState() {
     super.initState();
     controller = TabController(
-      length: 5,
+      length: 4,
       vsync: this,
     );
   }
@@ -61,30 +61,25 @@ class _SliverAppBarWithTabs extends State<MXCPage> with SingleTickerProviderStat
               tabs: [
                 Tab (
                     child: Align(
-                        alignment: Alignment.center,
-                        child: Text("SCHEDULE")
+                      alignment: Alignment.center,
+                      child: Text("SCHEDULE", style: TextStyle(color:Colors.white, fontWeight: FontWeight.bold)),
                     )),
                 Tab (
                     child: Align(
-                        alignment: Alignment.center,
-                        child: Text("ROSTER")
+                      alignment: Alignment.center,
+                      child: Text("ROSTER", style: TextStyle(color:Colors.white, fontWeight: FontWeight.bold)),
                     )),
                 Tab (
                     child: Align(
-                        alignment: Alignment.center,
-                        child: Text("COACHES")
+                      alignment: Alignment.center,
+                      child: Text("COACHES", style: TextStyle(color:Colors.white, fontWeight: FontWeight.bold)),
                     )),
                 Tab (
                     child: Align(
-                        alignment: Alignment.center,
-                        child: Text("STATISTICS")
-                    )),
-                Tab (
-                    child: Align(
-                        alignment: Alignment.center,
-                        child: Text("RECRUITS")
-                    )),
-
+                      alignment: Alignment.center,
+                      child: Text("STATISTICS", style: TextStyle(color:Colors.white, fontWeight: FontWeight.bold)),
+                    )
+                ),
               ],
               controller: controller,
             ),
@@ -95,11 +90,115 @@ class _SliverAppBarWithTabs extends State<MXCPage> with SingleTickerProviderStat
               //controller: controller ,
               controller: controller,
               children: <Widget>[
-                Center(child: Text("TAB ONE")),
-                Center(child: Text("TAB TWO")),
-                Center(child: Text("TAB THREE")),
+                CustomScrollView(slivers: <Widget>[
+                  SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                          (BuildContext context, int index){
+                        return Container(
+                            padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                            height: 100,
+                            decoration: BoxDecoration(
+                                border: Border(
+                                    bottom: BorderSide(color: Colors.grey, width: 1)),
+                                color: Colors.black
+                            ),
+
+                            alignment: Alignment.center,
+
+                            child:Column(children: <Widget>[
+                              Text("Coming soon")
+                            ],)
+
+                        );
+                      },
+                    ),)
+                ]),
+
+                Container(
+                    color: Colors.black,
+                    child: ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount: xcPlayers.length,
+                        itemBuilder: (BuildContext context, int index)
+                        {
+                          return Container (
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                border: Border(bottom: BorderSide(color: Colors.grey, width: 2.0)),
+                              ),
+                              child: Row(
+                                  children: <Widget> [
+                                    Container(
+                                      height: 120.0,
+                                      width: 100.0,
+                                      margin: EdgeInsets.all(5.0),
+                                      decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: xcPlayers[index].image,
+                                          )
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 15.0,
+                                    ),
+                                    Center(child: Column(
+                                        children: <Widget>[
+                                          Text(xcPlayers[index].name, style: TextStyle(fontSize: 26.0, color: Colors.white), textAlign: TextAlign.center,),
+                                          Text(xcPlayers[index].year,
+                                              style: TextStyle(fontSize: 20.0, color: Colors.white), textAlign: TextAlign.center),
+                                          Text(xcPlayers[index].hometown + " / " + xcPlayers[index].highSchool, style: TextStyle(fontSize: 16.5, color: Colors.white), textAlign: TextAlign.center,),
+                                          // Text(players[index].hometown + " / " + players[index].highSchool),
+                                        ]
+                                    )
+                                    ),
+                                  ]
+                              )
+                          );
+                        }
+                    )
+                ),
+                Container(
+                    color: Colors.black,
+                    child: ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount: xcCoaches.length,
+                        itemBuilder: (BuildContext context, int index)
+                        {
+                          return Container (
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                border: Border(bottom: BorderSide(color: Colors.grey, width: 2.0)),
+                              ),
+                              child: Row(
+                                  children: <Widget> [
+                                    Container(
+                                      height: 120.0,
+                                      width: 100.0,
+                                      margin: EdgeInsets.all(5.0),
+                                      decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: xcCoaches[index].image,
+                                          )
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 15.0,
+                                    ),
+                                    Center(child: Column(
+                                        children: <Widget>[
+                                          Text(xcCoaches[index].name, style: TextStyle(fontSize: 26.0, color: Colors.white), textAlign: TextAlign.center,),
+                                          Text(xcCoaches[index].title, style: TextStyle(fontSize: 20.0, color: Colors.white), textAlign: TextAlign.center,),
+
+                                        ]
+                                    )
+                                    ),
+                                  ]
+                              )
+                          );
+                        }
+                    )
+                ),
                 Center(child: Text("TAB FOUR")),
-                Center(child: Text("TAB FIVE")),
               ],
             ),
           ),
@@ -108,3 +207,45 @@ class _SliverAppBarWithTabs extends State<MXCPage> with SingleTickerProviderStat
     );
   }
 }
+
+class XcPlayers
+{
+  XcPlayers({this.name, this.year, this.hometown, this.highSchool, this.image});
+  final String name;
+  final String year;
+  final String hometown;
+  final String highSchool;
+  final NetworkImage image;
+}
+
+List<XcPlayers> xcPlayers = <XcPlayers>[
+  XcPlayers(name: "Erick Arcos", year: "Junior", hometown: "Graham, WA", highSchool: "Graham-Kapowsin", image: NetworkImage('https://golutes.com/images/2020/9/30/Arcos.JPG?width=80')),
+  XcPlayers(name: "Nico Bourgeois", year: "Senior", hometown: "Sumner, WA", highSchool: "Sumner", image: NetworkImage('https://golutes.com/images/2020/9/30/Bourgeois.JPG?width=80')),
+  XcPlayers(name: "Hezekiah Goodwin", year: "Senior", hometown: "Sacramento, CA", highSchool: "Kentlake", image: NetworkImage("https://golutes.com/images/2020/9/30/Goodwin.JPG?width=80")),
+  XcPlayers(name: "Riley Hutchins", year: "Freshman", hometown: "Snohomish, WA", highSchool: "Snohomish", image: NetworkImage("https://golutes.com/images/2020/9/30/Hutchins.JPG?width=80")),
+  XcPlayers(name: "Bryce Johnson", year: "Senior", hometown: "Bellingham, WA", highSchool: "Sehome", image: NetworkImage("https://golutes.com/images/2020/9/30/johnson.jpg?width=80")),
+  XcPlayers(name: "Jonah Maier", year: "Sophomore", hometown: "Seattle, WA", highSchool: "Ballard", image: NetworkImage("https://golutes.com/images/2020/9/30/Jonah_Maier.jpg?width=80")),
+  XcPlayers(name: "Johnny Maier", year: "Senior", hometown: "Seattle, WA", highSchool: "Ballard", image: NetworkImage("https://golutes.com/images/2020/9/30/Johnny_Maier.jpg?width=80")),
+  XcPlayers(name: "Phillip Philbrick", year: "Freshman", hometown: "Federal Way, WA", highSchool: "Todd", image: NetworkImage("https://golutes.com/images/2021/2/9/Philbrick.JPG?width=80")),
+  XcPlayers(name: "Trey Robak", year: "Junior", hometown: "Santee, CA", highSchool: "Grossmont", image: NetworkImage("https://golutes.com/images/2020/9/30/Robak.JPG?width=80")),
+  XcPlayers(name: "Daniel Samson", year: "Junior", hometown: "Olympia, WA", highSchool: "Capital", image: NetworkImage("https://golutes.com/images/2019/8/28/Samson.jpg?width=80")),
+  XcPlayers(name: "Ryan Stracke", year: "Sophomore", hometown: "Puyallup, WA", highSchool: "Rogers", image: NetworkImage("https://golutes.com/images/2020/9/30/Stracke.JPG?width=80")),
+  XcPlayers(name: "Ethan Tucey", year: "Sophomore", hometown: "Lake Stevens, WA", highSchool: "Lake Stevens", image: NetworkImage("https://golutes.com/images/2020/9/30/Tucey.JPG?width=80")),
+  XcPlayers(name: "Riley Wynn", year: "Senior", hometown: "Gig Harbor, WA", highSchool: "Peninsula", image: NetworkImage("https://golutes.com/images/2020/9/30/Wynn.JPG?width=80")),
+
+];
+
+class XcCoaches
+{
+  XcCoaches({this.name, this.title, this.image});
+  final String name;
+  final String title;
+  final NetworkImage image;
+}
+
+List<XcCoaches> xcCoaches = <XcCoaches>[
+  XcCoaches(name: "Adam Frye", title: "Head Coach", image: NetworkImage('https://golutes.com/images/2018/4/24//adamfrye.jpg?width=80')),
+  XcCoaches(name: "Jacob Wahlenmaier", title: "Assistant Coach", image: NetworkImage('https://golutes.com/images/2019/12/6/Coach_Wahlenmaier.jpg?width=80')),
+  XcCoaches(name: "Matthew Beal", title: "Assistant Coach", image: NetworkImage('https://golutes.com/images/2019/12/6/Beal_Crop.jpg?width=80')),
+  XcCoaches(name: "Anna Restemayer", title: "Assistant Coach", image: NetworkImage('https://golutes.com/images/2020/10/21/Restemayer.jpg?width=80')),
+];

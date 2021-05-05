@@ -14,7 +14,7 @@ class _SliverAppBarWithTabs extends State<VBPage> with SingleTickerProviderState
   void initState() {
     super.initState();
     controller = TabController(
-      length: 5,
+      length: 4,
       vsync: this,
     );
   }
@@ -80,11 +80,6 @@ class _SliverAppBarWithTabs extends State<VBPage> with SingleTickerProviderState
                         alignment: Alignment.center,
                         child: Text("STATISTICS", style: TextStyle(fontWeight: FontWeight.bold)),
                     )),
-                Tab (
-                    child: Align(
-                        alignment: Alignment.center,
-                        child: Text("RECRUITS", style: TextStyle(fontWeight: FontWeight.bold)),
-                    )),
 
               ],
               controller: controller,
@@ -138,7 +133,6 @@ class _SliverAppBarWithTabs extends State<VBPage> with SingleTickerProviderState
                 Center(child: Text("TAB TWO")),
                 Center(child: Text("TAB THREE")),
                 Center(child: Text("TAB FOUR")),
-                Center(child: Text("TAB FIVE")),
               ],
             ),
           ),
