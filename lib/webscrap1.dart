@@ -23,7 +23,7 @@ List <String> finalLogos = [];
 List <String> months = [];
 List <String> dayNumOnly = [];
 List <String> timeOnly = [];
-
+List <String> timeLabels = ['AM', 'AM', 'AM', 'AM', 'AM', 'AM', 'AM', 'AM', 'AM', 'AM', 'AM', 'AM', 'PM', 'PM'];
 
 ///////////////
 // OPTION 2 // => Create an Info Object
@@ -145,14 +145,14 @@ Future initiate(BaseClient client) async
       months.add(tempList[0]);
       dayNumOnly.add(tempList[1]);
       timeOnly.add(tempList[2]);
-      timeOnly.add(tempList[3]);
+      //timeOnly.add(tempList[3]);
 
     }
-
-  print("GAME INFO");
-  print(months);
-  print(dayNumOnly);
-  print(timeOnly);
+  //
+  // print("GAME INFO");
+  // print(months);
+  // print(dayNumOnly);
+  // print(timeOnly);
  // print(justOpponents);
  // print(dateAndTime);
   //print(gameInfo);

@@ -50,6 +50,7 @@ import 'sbScheduleScrap.dart' as sbScheduleScrap;
 import 'wswimScheduleScrap.dart' as wswimScheduleScrap;
 import 'volleyballScheduleScrap.dart' as vbScheduleScrap;
 import 'wtenScheduleScrap.dart' as wtenScheduleScrap;
+import 'wsocStatsScrap.dart' as wsocStatsScrap;
 
 //////////////////////
 // FOR WEB SCRAPING //
@@ -62,6 +63,7 @@ Future main(List<String> arguments) async
   print(await wswimScheduleScrap.initiate(Client()));
   print(await vbScheduleScrap.initiate(Client()));
   print(await wtenScheduleScrap.initiate(Client()));
+  print(await wsocStatsScrap.initiate(Client()));
   runApp(MyApp());
 }
 

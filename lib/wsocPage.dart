@@ -6,6 +6,11 @@ import 'package:flutter/material.dart';
 ///////////////////
 import 'webscrap1.dart';
 
+/////////////////
+// WSOC STATS //
+////////////////
+import 'wsocStatsScrap.dart';
+
 //////////////////////
 // FOR ROSTER PAGE //
 /////////////////////
@@ -541,15 +546,15 @@ class _SliverAppBarWithTabs extends State<WSOCPage>
                             SizedBox(height: 10.0),
                             Text(
                               //dateAndTime[index],
-                              months[index] + "  " + dayNumOnly[index],
+                              months[index] + " " + dayNumOnly[index] + "  @ " + timeOnly[index] + timeLabels[index],
                               style: TextStyle(
                                   fontSize: 15.0, color: Colors.white),
                             ),
-                            Text(
-                              "@" + " " + timeOnly[index],
-                              style: TextStyle(
-                                fontSize: 15.0, color: Colors.white),
-                              ),
+                            // Text(
+                            //   "@" + " " + timeOnly[index],
+                            //   style: TextStyle(
+                            //     fontSize: 15.0, color: Colors.white),
+                            //   ),
 
                           ]),
                         );
@@ -784,7 +789,394 @@ class _SliverAppBarWithTabs extends State<WSOCPage>
 
 
                     ])),
-                Container(color: Colors.black, child: Center(child: Text("Data Coming Soon", style: TextStyle(color: Colors.white)))),
+
+                ////////////
+                // STATS //
+                ///////////
+                Table(
+                 // border: TableBorder.all(color: Colors.white60),
+                  columnWidths: <int, TableColumnWidth> {
+                    0: FixedColumnWidth(64),
+                    1: FixedColumnWidth(50),
+                    2: FixedColumnWidth(40),
+                  },
+
+                  defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                  children: <TableRow> [
+                    TableRow(
+                      children: <Widget> [
+                        Container(
+                          height: 38,
+                          color: Colors.black,
+                          child: Center( child: Text("PLU", style: TextStyle(color: Colors.white, fontSize: 21, fontWeight: FontWeight.bold))),
+                        ),
+
+                        Container(
+                          height: 38,
+                          color: Colors.black,
+                        ),
+
+                        Container(
+                          height: 38,
+                          color: Colors.black,
+                          child: Center(child: Text("OPPONENT", style: TextStyle(color: Colors.white, fontSize: 21, fontWeight: FontWeight.bold)))
+                        )
+                      ]
+                    ),
+
+                    //////////
+                    // STAT //
+                    //////////
+                    TableRow(
+                      children: <Widget> [
+                        Container(
+                          height: 40,
+                          color: Colors.black,
+                          child: Center(child: Text(stats[0], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                        ),
+
+                        TableCell(
+                          verticalAlignment: TableCellVerticalAlignment.top,
+                          child: Container(
+                            color: Colors.amberAccent,
+                            child: Center(child: Text(statName[0], style: TextStyle(fontWeight: FontWeight.bold))),
+                            height: 40,
+                          )
+                        ),
+
+                        Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[1], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                        ),
+                      ]
+                    ),
+
+                    //////////
+                    // STAT //
+                    //////////
+                    TableRow(
+                        children: <Widget> [
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[2], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+
+                          Container(
+                              child: Container(
+                                color: Colors.amberAccent,
+                                child: Center(child: Text(statName[1], style: TextStyle(fontWeight: FontWeight.bold))),
+                                height: 40,
+                              )
+                          ),
+
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[3], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+                        ]
+                    ),
+
+                    //////////
+                    // STAT //
+                    //////////
+                    TableRow(
+                        children: <Widget> [
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[4], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+
+                          Container(
+                              child: Container(
+                                color: Colors.amberAccent,
+                                child: Center(child: Text(statName[2], style: TextStyle(fontWeight: FontWeight.bold))),
+                                height: 40,
+                              )
+                          ),
+
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[5], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+                        ]
+                    ),
+
+                    //////////
+                    // STAT //
+                    //////////
+                    TableRow(
+                        children: <Widget> [
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[6], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+
+                          Container(
+                              child: Container(
+                                color: Colors.amberAccent,
+                                child: Center(child: Text(statName[3], style: TextStyle(fontWeight: FontWeight.bold))),
+                                height: 40,
+                              )
+                          ),
+
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[7], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+                        ]
+                    ),
+
+                    //////////
+                    // STAT //
+                    //////////
+                    TableRow(
+                        children: <Widget> [
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[8], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+
+                          Container(
+                              child: Container(
+                                color: Colors.amberAccent,
+                                child: Center(child: Text(statName[4], style: TextStyle(fontWeight: FontWeight.bold))),
+                                height: 40,
+                              )
+                          ),
+
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[9], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+                        ]
+                    ),
+
+                    //////////
+                    // STAT //
+                    //////////
+                    TableRow(
+                        children: <Widget> [
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[10], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+
+                          Container(
+                              child: Container(
+                                color: Colors.amberAccent,
+                                child: Center(child: Text(statName[5], style: TextStyle(fontWeight: FontWeight.bold))),
+                                height: 40,
+                              )
+                          ),
+
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[11], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+                        ]
+                    ),
+
+                    //////////
+                    // STAT //
+                    //////////
+                    TableRow(
+                        children: <Widget> [
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[12], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+
+                          Container(
+                              child: Container(
+                                color: Colors.amberAccent,
+                                child: Center( child: Text(statName[6], style: TextStyle(fontSize: 10.1,fontWeight: FontWeight.bold))),
+                                height: 40,
+                              )
+                          ),
+
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[13], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+                        ]
+                    ),
+
+                    //////////
+                    // STAT //
+                    //////////
+                    TableRow(
+                        children: <Widget> [
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[14], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+
+                          Container(
+                              child: Container(
+                                color: Colors.amberAccent,
+                                child: Center( child: Text(statName[7], style: TextStyle(fontWeight: FontWeight.bold))),
+                                height: 40,
+                              )
+                          ),
+
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[15], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+                        ]
+                    ),
+
+                    //////////
+                    // STAT //
+                    //////////
+                    TableRow(
+                        children: <Widget> [
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[16], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+
+                          Container(
+                              child: Container(
+                                color: Colors.amberAccent,
+                                child: Center( child: Text(statName[8], style: TextStyle(fontWeight: FontWeight.bold))),
+                                height: 40,
+                              )
+                          ),
+
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[17], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+                        ]
+                    ),
+
+                    //////////
+                    // STAT //
+                    //////////
+                    TableRow(
+                        children: <Widget> [
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[18], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+
+                          Container(
+                              child: Container(
+                                color: Colors.amberAccent,
+                                child: Center( child: Text(statName[9], style: TextStyle(fontWeight: FontWeight.bold))),
+                                height: 40,
+                              )
+                          ),
+
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[19], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+                        ]
+                    ),
+
+                    //////////
+                    // STAT //
+                    //////////
+                    TableRow(
+                        children: <Widget> [
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[20], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+
+                          Container(
+                              child: Container(
+                                color: Colors.amberAccent,
+                                child: Center( child: Text(statName[10], style: TextStyle(fontWeight: FontWeight.bold))),
+                                height: 40,
+                              )
+                          ),
+
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[21], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+                        ]
+                    ),
+
+                    //////////
+                    // STAT //
+                    //////////
+                    TableRow(
+                        children: <Widget> [
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[22], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+
+                          Container(
+                              child: Container(
+                                color: Colors.amberAccent,
+                                child: Center( child: Text(statName[11], style: TextStyle(fontWeight: FontWeight.bold))),
+                                height: 40,
+                              )
+                          ),
+
+                          Container(
+                            height: 40,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[23], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+                        ]
+                    ),
+
+                    //////////
+                    // STAT //
+                    //////////
+                    TableRow(
+                        children: <Widget> [
+                          Container(
+                            height: 43,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[24], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+
+                          Container(
+                              child: Container(
+                                color: Colors.amberAccent,
+                                child: Center( child: Text(statName[12], style: TextStyle(fontWeight: FontWeight.bold))),
+                                height: 43,
+                              )
+                          ),
+
+                          Container(
+                            height: 43,
+                            color: Colors.black,
+                            child: Center(child: Text(stats[25], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                          ),
+                        ]
+                    )
+                  ]
+                )
               ],
             ),
           ),
