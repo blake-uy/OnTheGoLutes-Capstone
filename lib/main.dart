@@ -86,152 +86,6 @@ Future main(List<String> arguments) async
   runApp(MyApp());
 }
 
-//////////////////////////
-// FOR LIVE STREAM URL //
-/////////////////////////
-// class StreamLaunch extends StatefulWidget
-// {
-//   @override
-//   _StreamLaunch createState() => _StreamLaunch();
-// }
-//
-// class _StreamLaunch extends State<StreamLaunch>
-// {
-//   Future <void>? _launched;
-//
-//   Future <void> _launchURL(String url) async
-//   {
-//     if (await canLaunch(url))
-//     {
-//       await launch(url);
-//     }
-//
-//     else
-//     {
-//       throw 'COULD NOT LAUNCH $url';
-//     }
-//   }
-//
-// }
-
-// String _url = 'https://portal.stretchinternet.com/plu/#';
-//void _launchURL() async => await canLaunch(_url) ? await launch(_url) : throw 'Could NOT launch $_url';
-
-// class HomePageHeader implements SliverPersistentHeaderDelegate
-// {
-//   HomePageHeader(
-//   {
-//    // this.layoutGroup,
-//     this.onLayoutToggle,
-//     this.minExtent,
-//     this.maxExtent,
-//   });
-//
-//   //final LayoutGroup layoutGroup;
-//   final VoidCallback onLayoutToggle;
-//
-//   double minExtent;
-//   double maxExtent;
-//
-//   @override
-//   Widget build (BuildContext context, double shrinkOffset, bool overlapsContent)
-//   {
-//     return Stack(
-//       fit: StackFit.expand,
-//       children: [
-//         Image.asset('images/mtrack.jpg', fit: BoxFit.cover),
-//
-//         Container(
-//           decoration: BoxDecoration(
-//             gradient: LinearGradient(
-//               colors: [
-//                 Colors.transparent,
-//                 Colors.black54,
-//               ],
-//               stops: [0.5, 1.0],
-//               begin: Alignment.topCenter,
-//               end: Alignment.bottomCenter,
-//               tileMode: TileMode.repeated,
-//             ),
-//           ),
-//         ),
-//
-//         Positioned(
-//           left: 16.0,
-//           right: 16.0,
-//           bottom: 16.0,
-//           child: Text(
-//             'PLU ATHLETICS',
-//             style: TextStyle(fontSize: 30.0, color: Colors.white),
-//           ),
-//         ),
-//       ],
-//     );
-//   }
-//
-//   @override
-//   bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate)
-//   {
-//     return true;
-//   }
-//
-//   @override
-//   FloatingHeaderSnapConfiguration get snapConfiguration => null;
-//
-//   @override
-//   OverScrollHeaderStretchConfiguration get stretchConfiguration => OverScrollHeaderStretchConfiguration();
-//
-//   @override
-//   PersistentHeaderShowOnScreenConfiguration get showOnScreenConfiguration => PersistentHeaderShowOnScreenConfiguration();
-//
-//   @override
-//   TickerProvider get vsync => throw UnimplementedError();
-// }
-//
-// class HomePage extends StatelessWidget
-// {
-//   HomePage ({Key key, this.onLayoutToggle}) : super(key: key);
-//
-//  // final LayoutGroup layoutGroup;
-//   final VoidCallback onLayoutToggle;
-//
-//   @override
-//   Widget build (BuildContext context)
-//   {
-//     return Scaffold(
-//       body: _customScrollView(context),
-//     );
-//   }
-//
-//   Widget _customScrollView (BuildContext context)
-//   {
-//     return Container(
-//       child: CustomScrollView(
-//         slivers: <Widget> [
-//           SliverPersistentHeader(
-//             pinned: true,
-//             delegate: HomePageHeader(
-//              // layoutGroup: layoutGroup,
-//               onLayoutToggle: onLayoutToggle,
-//               minExtent: 150.0,
-//               maxExtent: 250.0,
-//             )
-//           ),
-//         ]
-//       )
-//     );
-//
-//   }
-//}
-
-
-
-// void main() {
-//   runApp(MyApp());
-// //   runApp(Post());
-//   // runApp(PageViews());
-// }
-
 class MyApp extends StatelessWidget {
   // Root Widget of App
   @override
@@ -428,11 +282,6 @@ class SportsTiles extends StatelessWidget
       }
 
     return new ExpansionTile(
-      //backgroundColor: Colors.grey,
-     // expandedAlignment: Alignment.center,
-     // initiallyExpanded: true,
-     // key: new PageStorageKey<Tile>(t),
-
       title: new Text(t.title, style: TextStyle(color: Colors.white, fontSize: 20, fontFamily: 'Quicksand')),
       children: t.children.map(_buildTiles).toList(),
     );
@@ -451,12 +300,6 @@ class _HomePage extends State<HomePage>
   {
     launch(url);
   }
- // Future <void> _launched;
-
-  // Future <void> _launchURL(String url)
-  // {
-  //   return launch(url);
-  // }
 
   @override
   Widget build (BuildContext context)
@@ -464,13 +307,9 @@ class _HomePage extends State<HomePage>
     String _url = 'https://portal.stretchinternet.com/plu/#';
 
     return Scaffold (
-     // endDrawer: ClipPath(
-      //  clipper: _DrawerClipper(),
-      //  child: Drawer(
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
-         // padding: EdgeInsets.only(top: 48),
           children: <Widget> [
             Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -488,48 +327,27 @@ class _HomePage extends State<HomePage>
             ),
 
             ListTile(
-               // tileColor: Colors.grey,
               title: Text("Live Stream", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15, fontFamily: 'Quicksand')),
                 enableFeedback: true,
               onTap: () => _launchURL(_url),
-              // onTap: () => setState(() {
-              //   _launched = _launchURL(_url);
-              // }),
             ),
 
             ListTile(
-             // tileColor: Colors.grey,
               title: Text("News", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, fontFamily: 'Quicksand')),
               enableFeedback: true,
               onTap: () => _launchURL('https://golutes.com/archives')
             ),
 
             ListTile(
-              //tileColor: Colors.grey,
               title: Text("Instagram", style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold, fontFamily: 'Quicksand')),
-             // enableFeedback: true,
               onTap: () async => {
                 await launch('https://www.instagram.com/golutes/')
-
-
-
-               // Navigator.push(context, MaterialPageRoute(builder: (context) => Instagram()))
-                //await launch('https://www.instagram.com/golutes/')
-
-                // await Navigator.of(context).push(MaterialPageRoute(
-                //   builder: (BuildContext context) => Instagram(),
-                // ))
-
-               // Navigator.push(context, MaterialPageRoute(builder: (context) => Instagram()))
-
-                //_launchURL('https://twitter.com/golutes')
               }
             ),
 
             ListTile(
               title: Text("Twitter", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, fontFamily: 'Quicksand'),),
               onTap: () async => {
-              //  await Navigator.push(context, MaterialPageRoute(builder: (context) => Instagram()))
                 await launch('https://twitter.com/golutes')
               },
               enableFeedback: true,
@@ -538,7 +356,6 @@ class _HomePage extends State<HomePage>
             ListTile(
               title: Text("PLU Portal", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, fontFamily: 'Quicksand'),),
               onTap: () {
-                //Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => PlayerPortalPage()));
               }
             ),
@@ -572,9 +389,6 @@ class _HomePage extends State<HomePage>
           delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index)
               {
-                // onTap: (context) {
-                //   Navigator.push(context, MaterialPageRoute (builder: (context) => SecondPage()));
-                // };
                 return Container(
                  // height: 600.0,
                   alignment: Alignment.center,
@@ -586,81 +400,11 @@ class _HomePage extends State<HomePage>
                   child: Column(
                     children: <Widget> [SportsTiles(sports[index], context),],
                   ),
-
-
-
-                  /////////////////
-                  // OPTION !!! ///
-                  /////////////////
-                  // child: new SportsTiles(sports[index]),
-
-                  /////////////////
-                  // OPTION !!! ///
-                  /////////////////
-                  // child: ListView.builder(
-                  //     itemBuilder: (BuildContext context, int index) {
-                  //       return new SportsTiles(sports[index]);
-                  //     },
-                  // itemCount: sports.length,
-                  // ),
-
-                  /////////////////
-                  // OPTION !!! ///
-                  /////////////////
-                  // child: Column(
-                  //   crossAxisAlignment: CrossAxisAlignment.start,
-                  //   children: <Widget> [
-                  //     ListView.builder(
-                  //         itemBuilder: (BuildContext context, int index)
-                  //     {
-                  //       return new SportsTiles(sports[index]);
-                  //     },
-                  //     itemCount: sports.length,
-                  //     ),
-                  //   ],
-                  // )
                 );
               }, childCount: sports.length,
           )
         ),
-
-        // SliverToBoxAdapter(
-        //   child: Center(
-        //     child: SizedBox(
-        //       height: 2000,
-        //       child: Text('Scroll'),
-        //     )
-        //   )
-        // ),
-
-        // SliverGrid(
-        //   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-        //     maxCrossAxisExtent: 200.0,
-        //     mainAxisExtent: 0.0,
-        //     crossAxisSpacing: 0.0,
-        //     childAspectRatio: 0.75,
-        //   ),
-        //
-        //   delegate: SliverChildBuilderDelegate(
-        //       (BuildContext context, int index)
-        //   {
-        //     return Container(
-        //       alignment: Alignment.center,
-        //       color: Colors.teal[100 * (index % 9)],
-        //       //color: Colors.transparent,
-        //      // padding: EdgeInsets.all(5.0),
-        //       child: Text("HELLO",
-        //       ),
-        //     );
-        //   },
-        //     childCount: 9,
-        //
-        //   ),
-        // )
-
-
       ]
-
     )
     );
   }
@@ -673,26 +417,11 @@ class _DrawerClipper extends CustomClipper<Path>
   {
     Path path = Path();
 
-   // path.lineTo(size.width, 2);
-
     path.moveTo(50, 0);
     path.quadraticBezierTo(0, size.height/2, 50, size.height);
 
-
-    //path.quadraticBezierTo(size.width * 5, size.height/2, 0, size.height);
-
-   // path.lineTo();
-
     path.lineTo(size.width, size.height);
     path.lineTo(size.width, 0);
-
-
-   // path.lineTo(size.width, size.height);
-   // path.lineTo(size.width, 0);
-
-    //path.lineTo(0, size.height/2);
-    // path.lineTo(50, size.height);
-   // path.lineTo(size.width, 0);
 
     return path;
   }
@@ -701,19 +430,3 @@ class _DrawerClipper extends CustomClipper<Path>
   bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 
 }
-
-// class HomePage extends StatefulWidget
-// {
-//   @override
-//   _HomePageState createState() => _HomePageState();
-// }
-//
-// class _HomePageState extends State<HomePage> {
-//   @override
-//   Widget build (BuildContext context)
-//   {
-//     return Scaffold(
-//       appBar: AppBar(title: Text('PLU Athletics')),
-//     );
-//   }
-// }
