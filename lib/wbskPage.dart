@@ -14,7 +14,7 @@ class _SliverAppBarWithTabs extends State<WBSKPage>
   void initState() {
     super.initState();
     controller = TabController(
-      length: 5,
+      length: 4,
       vsync: this,
     );
   }
@@ -77,11 +77,6 @@ class _SliverAppBarWithTabs extends State<WBSKPage>
                         alignment: Alignment.center,
                         child: Text("STATISTICS",
                             style: TextStyle(fontWeight: FontWeight.bold)))),
-                Tab(
-                    child: Align(
-                        alignment: Alignment.center,
-                        child: Text("RECRUITS",
-                            style: TextStyle(fontWeight: FontWeight.bold)))),
               ],
               controller: controller,
             ),
@@ -132,11 +127,6 @@ class _SliverAppBarWithTabs extends State<WBSKPage>
                 ]),
 
                 // Center(child: Text("TAB ONE")),
-                Container(
-                    color: Colors.black,
-                    child: Center(
-                        child: Text("Data Coming Soon",
-                            style: TextStyle(color: Colors.white)))),
                 Container(
                     color: Colors.black,
                     child: Center(

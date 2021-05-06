@@ -13,7 +13,7 @@ class _SliverAppBarWithTabs extends State<CrewPage> with SingleTickerProviderSta
   void initState() {
     super.initState();
     controller = TabController(
-      length: 5,
+      length: 4,
       vsync: this,
     );
   }
@@ -73,11 +73,6 @@ class _SliverAppBarWithTabs extends State<CrewPage> with SingleTickerProviderSta
                         alignment: Alignment.center,
                         child: Text("STATISTICS")
                     )),
-                Tab (
-                    child: Align(
-                        alignment: Alignment.center,
-                        child: Text("RECRUITS")
-                    )),
               ],
               controller: controller,
             ),
@@ -92,7 +87,6 @@ class _SliverAppBarWithTabs extends State<CrewPage> with SingleTickerProviderSta
                 Center(child: Text("TAB TWO")),
                 Center(child: Text("TAB THREE")),
                 Center(child: Text("TAB FOUR")),
-                Center(child: Text("TAB FIVE")),
               ],
             ),
           ),

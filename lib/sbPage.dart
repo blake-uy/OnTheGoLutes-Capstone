@@ -14,7 +14,7 @@ class _SliverAppBarWithTabs extends State<SBPage> with SingleTickerProviderState
   void initState() {
     super.initState();
     controller = TabController(
-      length: 5,
+      length: 4,
       vsync: this,
     );
   }
@@ -22,22 +22,16 @@ class _SliverAppBarWithTabs extends State<SBPage> with SingleTickerProviderState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Colors.transparent,
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            //  title: Text("BASEBALL"),
-            // title: Text('BASEBALL', style: TextStyle(fontSize: 25.0,)),
             pinned: true,
             backgroundColor: Colors.grey,
 
-            //snap: true,
-            //floating: true,
             expandedHeight: 175.0,
             flexibleSpace: FlexibleSpaceBar(
               collapseMode: CollapseMode.pin,
               centerTitle: true,
-              //   title: Text('BASEBALL', style: TextStyle(fontSize: 25.0,)),
               background: Image.asset('images/sb.jpg', fit: BoxFit.cover),
             ),
 
@@ -73,11 +67,6 @@ class _SliverAppBarWithTabs extends State<SBPage> with SingleTickerProviderState
                     child: Align(
                         alignment: Alignment.center,
                         child: Text("STATISTICS", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                    )),
-                Tab (
-                    child: Align(
-                        alignment: Alignment.center,
-                        child: Text("RECRUITS", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                     )),
               ],
               controller: controller,
@@ -174,7 +163,6 @@ class _SliverAppBarWithTabs extends State<SBPage> with SingleTickerProviderState
                 ),
                 Center(child: Text("TAB THREE")),
                 Center(child: Text("TAB FOUR")),
-                Center(child: Text("TAB FIVE")),
               ],
             ),
           ),
