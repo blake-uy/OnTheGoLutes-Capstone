@@ -52,6 +52,16 @@ import 'volleyballScheduleScrap.dart' as vbScheduleScrap;
 import 'wtenScheduleScrap.dart' as wtenScheduleScrap;
 import 'wsocStatsScrap.dart' as wsocStatsScrap;
 
+import 'mswimScheduleScrap.dart' as mswimScheduleScrap;
+import 'baseScheduleScrap.dart' as baseScheduleScrap;
+import 'mbskScheduleScrap.dart' as mbskScheduleScrap;
+import 'mxcScheduleScrap.dart' as mxcScheduleScrap;
+import 'footballScheduleScrap.dart' as footballScheduleScrap;
+import 'mgolfScheduleScrap.dart' as mgolfScheduleScrap;
+import 'msocScheduleScrap.dart' as msocScheduleScrap;
+import 'mtenScheduleScrap.dart' as mtenScheduleScrap;
+import 'mtfScheduleScrap.dart' as mtfScheduleScrap;
+
 //////////////////////
 // FOR WEB SCRAPING //
 //////////////////////
@@ -64,6 +74,15 @@ Future main(List<String> arguments) async
   print(await vbScheduleScrap.initiate(Client()));
   print(await wtenScheduleScrap.initiate(Client()));
   print(await wsocStatsScrap.initiate(Client()));
+  print(await mswimScheduleScrap.initiate(Client()));
+  print(await baseScheduleScrap.initiate(Client()));
+  print(await mbskScheduleScrap.initiate(Client()));
+  print(await mxcScheduleScrap.initiate(Client()));
+  print(await footballScheduleScrap.initiate(Client()));
+  print(await mgolfScheduleScrap.initiate(Client()));
+  print(await msocScheduleScrap.initiate(Client()));
+  print(await mtenScheduleScrap.initiate(Client()));
+  print(await mtfScheduleScrap.initiate(Client()));
   runApp(MyApp());
 }
 
