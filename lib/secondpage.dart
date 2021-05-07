@@ -1,6 +1,8 @@
 import 'package:capstone3/crewPage.dart';
 import 'package:flutter/material.dart';
 
+import 'baseScheduleScrap.dart';
+
 class SecondPage extends StatefulWidget
 {
   @override
@@ -94,14 +96,25 @@ class _SliverAppBarWithTabs extends State<SecondPage> with SingleTickerProviderS
                               ),
 
                             alignment: Alignment.center,
-                            
-                            child:Column(children: <Widget>[
-                              Text("Coming soon")
-                            ],)
-                            
-                            );
-                      },
-                  ),)
+
+                            child: Column(children: <Widget>[
+                              Text(
+                                justOpponents[index],
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20.0),
+                              ),
+                              SizedBox(height: 10.0),
+                              Text(
+                                dateAndTime[index],
+                                style: TextStyle(
+                                    fontSize: 15.0, color: Colors.white),
+                              )
+                            ]),
+                          );
+                        },
+                        childCount: justOpponents.length,
+                      ),
+                  )
                 ]),
 
                 Container(

@@ -22,8 +22,7 @@ List <String> timeLabels = ['AM', 'AM', 'AM', 'PM', 'PM'];
 ///////////////
 // OPTION 2 // => Create an Info Object
 //////////////
-class Info
-{
+class Info {
   String opponent;
   String opponentLink;
 
@@ -49,7 +48,7 @@ Future initiate(BaseClient client) async
 
   List links = document.querySelectorAll('div.sidearm-schedule-game-opponent-name > a');
 
-  List<Map<String, String>> linkMap = [];
+    List<Map<String, String>> linkMap = [];
 
   ///////////////////////////////
   // Opponent Name + Date/Time //

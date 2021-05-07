@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'mtenScheduleScrap.dart';
 
 class MTenPage extends StatefulWidget
 {
@@ -105,13 +106,24 @@ class _SliverAppBarWithTabs extends State<MTenPage> with SingleTickerProviderSta
 
                             alignment: Alignment.center,
 
-                            child:Column(children: <Widget>[
-                              Text("Coming soon")
-                            ],)
-
+                          child: Column(children: <Widget>[
+                            Text(
+                              justOpponents[index],
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 20.0),
+                            ),
+                            SizedBox(height: 10.0),
+                            Text(
+                              dateAndTime[index],
+                              style: TextStyle(
+                                  fontSize: 15.0, color: Colors.white),
+                            )
+                          ]),
                         );
-                      },
-                    ),)
+                          },
+                      childCount: justOpponents.length,
+                    ),
+                  )
                 ]),
 
                 Container(
