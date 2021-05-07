@@ -1,6 +1,25 @@
 import 'package:flutter/material.dart';
 import 'wtenScheduleScrap.dart';
 
+class WTennisPlayers
+{
+  WTennisPlayers({this.name, this.year, this.hometown, this.highSchool, this.image});
+  final String name;
+  final String year;
+  final String hometown;
+  final String highSchool;
+  final NetworkImage image;
+}
+
+List<WTennisPlayers> wtennisplayers =  <WTennisPlayers>[
+  WTennisPlayers(name: "Meggie Burnett", year: "Freshman", hometown: "Puyallup, WA", highSchool: "Puyallup HS", image: NetworkImage('https://golutes.com/images/2021/2/9/Burnett.JPG?width=80')),
+  WTennisPlayers(name: "Sydney Cameron", year: "Sophomore", hometown: "Chehalis, WA", highSchool: "W.F. West HS", image: NetworkImage("https://golutes.com/images/2021/2/9/Cameron.JPG?width=80")),
+  WTennisPlayers(name: "Jillian Chong", year: "Freshman", hometown: "Federal Way, WA", highSchool: "Federal Way HS", image: NetworkImage("https://golutes.com/images/2021/2/9/Chong.JPG?width=80")),
+  WTennisPlayers(name: "Bayley Gochanour", year: "Senior", hometown: "Whidbey Island, WA", highSchool: "South Whidbey HS", image: NetworkImage("https://golutes.com/images/2021/2/9/Gochanour_Bayley.jpg?width=80")),
+  WTennisPlayers(name: "Hannah Jeffries", year: "Senior", hometown: "Chehalis, WA", highSchool: "Centralia HS", image: NetworkImage("https://golutes.com/images/2021/2/9/Jeffries.jpg?width=80")),
+  WTennisPlayers(name: "Taylor Stokes", year: "Senior", hometown: "Auburn, WA", highSchool: "Kennedy Catholic HS", image: NetworkImage("https://golutes.com/images/2021/2/9/Stokes.jpg?width=80")),
+];
+
 class WTenPage extends StatefulWidget
 {
   @override
@@ -63,22 +82,22 @@ class _SliverAppBarWithTabs extends State<WTenPage> with SingleTickerProviderSta
                 Tab (
                     child: Align(
                         alignment: Alignment.center,
-                        child: Text("SCHEDULE")
+                        child: Text("SCHEDULE", style: TextStyle(fontWeight: FontWeight.bold))
                     )),
                 Tab (
                     child: Align(
                         alignment: Alignment.center,
-                        child: Text("ROSTER")
+                        child: Text("ROSTER", style: TextStyle(fontWeight: FontWeight.bold))
                     )),
                 Tab (
                     child: Align(
                         alignment: Alignment.center,
-                        child: Text("COACHES")
+                        child: Text("COACHES", style: TextStyle(fontWeight: FontWeight.bold))
                     )),
                 Tab (
                     child: Align(
                         alignment: Alignment.center,
-                        child: Text("STATISTICS")
+                        child: Text("STATISTICS", style: TextStyle(fontWeight: FontWeight.bold))
                     )),
               ],
               controller: controller,
@@ -111,17 +130,19 @@ class _SliverAppBarWithTabs extends State<WTenPage> with SingleTickerProviderSta
                           //////////////
 
                           child: Column(children: <Widget>[
+                            //Image( image: NetworkImage(finalLogos[index])),
                             Text(
                               justOpponents[index],
                               style: TextStyle(
-                                  color: Colors.black, fontSize: 20.0),
+                                  color: Colors.black, fontSize: 19.5),
                             ),
                             SizedBox(height: 10.0),
                             Text(
-                              dateAndTime[index],
+                              //dateAndTime[index],
+                              months[index] + " " + dayNumOnly[index] + "  @ " + timeOnly[index] + timeLabels[index],
                               style: TextStyle(
                                   fontSize: 15.0, color: Colors.black),
-                            )
+                            ),
                           ]),
                         );
                       },
@@ -129,7 +150,50 @@ class _SliverAppBarWithTabs extends State<WTenPage> with SingleTickerProviderSta
                     ),
                   )
                 ]),
-                Center(child: Text("TAB TWO")),
+                Container(
+                  // color: Colors.black,
+                    child: ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount: wtennisplayers.length,
+                        itemBuilder: (BuildContext context, int index)
+                        {
+                          return Container (
+                              decoration: BoxDecoration(
+                                // color: Colors.black,
+                                border: Border(bottom: BorderSide(color: Colors.grey, width: 2.0)),
+                              ),
+                              child: Row(
+                                  children: <Widget> [
+                                    Container(
+                                      height: 120.0,
+                                      width: 100.0,
+                                      margin: EdgeInsets.all(5.0),
+                                      decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: wtennisplayers[index].image,
+                                          )
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 15.0,
+                                    ),
+                                    Center(child: Column(
+                                        children: <Widget>[
+                                          Center(child:
+                                          Text(wtennisplayers[index].name, style: TextStyle(fontSize: 23.0,), textAlign: TextAlign.center,)),
+                                          Text(wtennisplayers[index].year + " / " + wtennisplayers[index].hometown,
+                                              style: TextStyle(fontSize: 17.0, ), textAlign: TextAlign.center),
+                                          Text(wtennisplayers[index].highSchool, style: TextStyle(fontSize: 16.0,), textAlign: TextAlign.center,),
+                                          // Text(players[index].hometown + " / " + players[index].highSchool),
+                                        ]
+                                    )
+                                    ),
+                                  ]
+                              )
+                          );
+                        }
+                    )
+                ),
                 Center(child: Text("TAB THREE")),
                 Center(child: Text("TAB FOUR")),
               ],

@@ -4,12 +4,23 @@ import 'package:http/http.dart';
 import 'package:html/parser.dart';
 import 'package:html/dom.dart';
 
-///////////////
-// OPTION 1 // => Add elements to a single list and iterate through that list
-//////////////
+////////////////////////////
+// Lists for Parsed Data //
+///////////////////////////
 List <String> gameInfo = [];
 List <String> justOpponents = [];
 List <String> dateAndTime = [];
+
+/////////////////////////////////////
+// For Separating the Date & Time //
+////////////////////////////////////
+List <String> months = [];
+List <String> dayNumOnly = [];
+List <String> timeOnly = [];
+List <String> timeLabels = ['PM', 'PM', 'AM', 'PM', 'PM', 'PM', 'PM', 'PM',
+  'PM', 'PM', 'PM', 'PM', 'AM', 'PM', 'AM', 'PM', 'PM', 'AM', 'PM', 'PM', 'AM',
+  'AM', 'PM', 'PM', 'PM', 'PM', 'PM', 'PM', 'AM', 'PM', 'PM', 'PM', 'AM','PM',
+'PM', 'PM', 'PM', 'PM', 'PM', 'PM', 'AM', 'PM'];
 
 ///////////////
 // OPTION 2 // => Create an Info Object
@@ -20,7 +31,6 @@ class Info
   String opponentLink;
 
   Info(this.opponent, this.opponentLink);
-//Info.fromJson(Map<String, dynamic> json) : 'opponent' = json['Opponent'], 'link' = json['Link'];
 }
 
 ///////////////////////////////////////////
@@ -35,24 +45,14 @@ Future initiate(BaseClient client) async
     return response.body;
   }
 
-  // HTML Parser
+  //////////////////
+  // HTML Parser //
+  /////////////////
   var document = parse(response.body);
-
-  //List<Element> teamStatsBar = document.getElementsByClassName('flex flex-wrap large-flex-no-wrap row');
-  // List<Element> teamStatsBar = document.getElementsByClassName('ul.flexflex-wraplarge-flex-no-wraprow > li.large-flex-item-1flexflex-columnflex-justify-centerflex-align-centerx-small-3columns');
-  //
-  // for (var i = 0; i < teamStatsBar.length; i++)
-  //   {
-  //     print(teamStatsBar[i]);
-  //   }
 
   List links = document.querySelectorAll('div.sidearm-schedule-game-opponent-name > a');
 
-  List opponentLogo = document.querySelectorAll('img.lazyloaded');
-  //List<Element> links = document.querySelectorAll('div.sidearm-common-promotion > section.sidearm-schedule-record > ul.flex flex-wrap');
-  //List<Element> links = document.querySelectorAll('div.sidearm-common-promotion sidearm-common-promotion-below-header');
   List<Map<String, String>> linkMap = [];
-  List<Map<String, dynamic>> logos = [];
 
   ///////////////////////////////
   // Opponent Name + Date/Time //
@@ -61,65 +61,47 @@ Future initiate(BaseClient client) async
   {
     linkMap.add(
         {
-          // 'Match: ' : link.innerHtml,
           'Opponent: ' : link.attributes['aria-label'],
-          //'Link: ' : link.attributes['href'],
-          // 'Element' : link.innerHtml,
         }
     );
   }
 
-  ////////////////////
-  // Opponent Logo //
-  ///////////////////
-  for (var x in opponentLogo)
-  {
-    logos.add(
-        {
-          'Logo': x.attributes['src']
-        }
-    );
-
-  }
-
-  print(logos);
-
-  // Info.fromJson(Map<String, dynamic> json) : 'opponent' = json['Opponent'], 'link' = json['Link'];
-
-  print("MAP");
-  //print(linkMap.length);
-  //print(linkMap[0].values);
-
+  ////////////////////////////////////////////////////////////////////////
+  // Add "values" aka data from Dictionary (linkMap) to gameInfo (list) //
+  ////////////////////////////////////////////////////////////////////////
   int x = 0;
   for (var i in linkMap)
   {
-
     gameInfo.addAll(linkMap[x].values);
     x++;
-
   }
 
-
+  /////////////////////////////////////////////////////////////////////
+// Split the Opponent, Date & Time Values (For Formatting Purposes) //
+  ////////////////////////////////////////////////////////////////////
   for (int i = 0; i < gameInfo.length ; i++)
   {
     String temp = gameInfo[i];
-    //print(temp);
-    //print(temp.split("on"));
     List <String> tempList = temp.split(" on ");
 
     justOpponents.add(tempList[0]);
 
-    // List <String> splitDateAndTime = tempList[1].split
     dateAndTime.add(tempList[1]);
   }
 
+  ///////////////////////////////////
+  // Split the Date & Time Values //
+  //////////////////////////////////
+  for (int i = 0; i < dateAndTime.length; i++)
+  {
+    String temp = dateAndTime[i];
 
+    List <String> tempList = temp.split(" ");
 
-  print("WOMEN'S SOFTBALL GAME INFO");
-  // print(justOpponents);
-  // print(dateAndTime);
-  //print(gameInfo);
-  //return json.encode(linkMap);
+    months.add(tempList[0]);
+    dayNumOnly.add(tempList[1]);
+    timeOnly.add(tempList[2]);
+  }
 }
 
 

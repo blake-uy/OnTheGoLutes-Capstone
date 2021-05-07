@@ -99,17 +99,19 @@ class _SliverAppBarWithTabs extends State<SBPage> with SingleTickerProviderState
                           //////////////
 
                           child: Column(children: <Widget>[
+                            //Image( image: NetworkImage(finalLogos[index])),
                             Text(
                               justOpponents[index],
                               style: TextStyle(
-                                  color: Colors.white, fontSize: 20.0),
+                                  color: Colors.white, fontSize: 19.5),
                             ),
                             SizedBox(height: 10.0),
                             Text(
-                              dateAndTime[index],
+                              //dateAndTime[index],
+                              months[index] + " " + dayNumOnly[index] + "  @ " + timeOnly[index] + timeLabels[index],
                               style: TextStyle(
                                   fontSize: 15.0, color: Colors.white),
-                            )
+                            ),
                           ]),
                         );
                       },
@@ -118,6 +120,9 @@ class _SliverAppBarWithTabs extends State<SBPage> with SingleTickerProviderState
                   )
                 ]),
 
+                /////////////
+                // ROSTER //
+                ////////////
                 Container(
                   color: Colors.black,
                   child: ListView.builder(
@@ -147,10 +152,10 @@ class _SliverAppBarWithTabs extends State<SBPage> with SingleTickerProviderState
                               ),
                               Center(child: Column(
                                   children: <Widget>[
-                                    Text(sbPlayers[index].number + " " + sbPlayers[index].name, style: TextStyle(fontSize: 26.0, color: Colors.white), textAlign: TextAlign.center,),
+                                    Text(sbPlayers[index].number + " " + sbPlayers[index].name, style: TextStyle(fontSize: 25.0, color: Colors.white), textAlign: TextAlign.center,),
                                     Text(sbPlayers[index].position + " / " + sbPlayers[index].height + " / " + sbPlayers[index].year,
                                         style: TextStyle(fontSize: 20.0, color: Colors.white), textAlign: TextAlign.center),
-                                    Text(sbPlayers[index].hometown + " / " + sbPlayers[index].highSchool, style: TextStyle(fontSize: 15.7, color: Colors.white), textAlign: TextAlign.center,),
+                                    Text(sbPlayers[index].hometown + " / " + sbPlayers[index].highSchool, style: TextStyle(fontSize: 14.8, color: Colors.white), textAlign: TextAlign.center,),
                                     // Text(players[index].hometown + " / " + players[index].highSchool),
                                   ]
                               )

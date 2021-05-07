@@ -40,16 +40,23 @@ import 'pageview.dart';
 import 'instaPage.dart';
 
 //////////////////////////
-// WEB SCRAPING IMPORTS //
+// WEB SCRAPING IMPORTS // => SCHEDULES
 //////////////////////////
 import 'package:http/http.dart';
 import 'webscrap1.dart' as webscraper1;
-import 'streamLaunch.dart';
 import 'wbskScheduleScrap.dart' as wbskScheduleScrap;
 import 'sbScheduleScrap.dart' as sbScheduleScrap;
 import 'wswimScheduleScrap.dart' as wswimScheduleScrap;
 import 'volleyballScheduleScrap.dart' as vbScheduleScrap;
 import 'wtenScheduleScrap.dart' as wtenScheduleScrap;
+import 'wxcScheduleScrap.dart' as wxcScheduleScrap;
+import 'wgolfScheduleScrap.dart' as wgolfScheduleScrap;
+import 'crewScheduleScrap.dart' as crewScheduleScrap;
+import 'wtfScheduleScrap.dart' as wtfScheduleScrap;
+
+///////////////////////////
+// WEB SCRAPING IMPORTS // => STATS
+//////////////////////////
 import 'wsocStatsScrap.dart' as wsocStatsScrap;
 
 //////////////////////
@@ -57,161 +64,30 @@ import 'wsocStatsScrap.dart' as wsocStatsScrap;
 //////////////////////
 Future main(List<String> arguments) async
 {
+  ///////////////////////
+  // SCHEDULE SCRAPERS //
+  ///////////////////////
   print(await webscraper1.initiate(Client()));
   print(await wbskScheduleScrap.initiate(Client()));
   print(await sbScheduleScrap.initiate(Client()));
   print(await wswimScheduleScrap.initiate(Client()));
   print(await vbScheduleScrap.initiate(Client()));
   print(await wtenScheduleScrap.initiate(Client()));
+  print(await wxcScheduleScrap.initiate(Client()));
+  print(await wgolfScheduleScrap.initiate(Client()));
+  print(await crewScheduleScrap.initiate(Client()));
+  print(await wtfScheduleScrap.initiate(Client()));
+
+  ////////////////////
+  // STAT SCRAPERS //
+  ///////////////////
   print(await wsocStatsScrap.initiate(Client()));
+
+  ////////////////////
+  // Main File Call //
+  ////////////////////
   runApp(MyApp());
 }
-
-//////////////////////////
-// FOR LIVE STREAM URL //
-/////////////////////////
-// class StreamLaunch extends StatefulWidget
-// {
-//   @override
-//   _StreamLaunch createState() => _StreamLaunch();
-// }
-//
-// class _StreamLaunch extends State<StreamLaunch>
-// {
-//   Future <void>? _launched;
-//
-//   Future <void> _launchURL(String url) async
-//   {
-//     if (await canLaunch(url))
-//     {
-//       await launch(url);
-//     }
-//
-//     else
-//     {
-//       throw 'COULD NOT LAUNCH $url';
-//     }
-//   }
-//
-// }
-
-// String _url = 'https://portal.stretchinternet.com/plu/#';
-//void _launchURL() async => await canLaunch(_url) ? await launch(_url) : throw 'Could NOT launch $_url';
-
-// class HomePageHeader implements SliverPersistentHeaderDelegate
-// {
-//   HomePageHeader(
-//   {
-//    // this.layoutGroup,
-//     this.onLayoutToggle,
-//     this.minExtent,
-//     this.maxExtent,
-//   });
-//
-//   //final LayoutGroup layoutGroup;
-//   final VoidCallback onLayoutToggle;
-//
-//   double minExtent;
-//   double maxExtent;
-//
-//   @override
-//   Widget build (BuildContext context, double shrinkOffset, bool overlapsContent)
-//   {
-//     return Stack(
-//       fit: StackFit.expand,
-//       children: [
-//         Image.asset('images/mtrack.jpg', fit: BoxFit.cover),
-//
-//         Container(
-//           decoration: BoxDecoration(
-//             gradient: LinearGradient(
-//               colors: [
-//                 Colors.transparent,
-//                 Colors.black54,
-//               ],
-//               stops: [0.5, 1.0],
-//               begin: Alignment.topCenter,
-//               end: Alignment.bottomCenter,
-//               tileMode: TileMode.repeated,
-//             ),
-//           ),
-//         ),
-//
-//         Positioned(
-//           left: 16.0,
-//           right: 16.0,
-//           bottom: 16.0,
-//           child: Text(
-//             'PLU ATHLETICS',
-//             style: TextStyle(fontSize: 30.0, color: Colors.white),
-//           ),
-//         ),
-//       ],
-//     );
-//   }
-//
-//   @override
-//   bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate)
-//   {
-//     return true;
-//   }
-//
-//   @override
-//   FloatingHeaderSnapConfiguration get snapConfiguration => null;
-//
-//   @override
-//   OverScrollHeaderStretchConfiguration get stretchConfiguration => OverScrollHeaderStretchConfiguration();
-//
-//   @override
-//   PersistentHeaderShowOnScreenConfiguration get showOnScreenConfiguration => PersistentHeaderShowOnScreenConfiguration();
-//
-//   @override
-//   TickerProvider get vsync => throw UnimplementedError();
-// }
-//
-// class HomePage extends StatelessWidget
-// {
-//   HomePage ({Key key, this.onLayoutToggle}) : super(key: key);
-//
-//  // final LayoutGroup layoutGroup;
-//   final VoidCallback onLayoutToggle;
-//
-//   @override
-//   Widget build (BuildContext context)
-//   {
-//     return Scaffold(
-//       body: _customScrollView(context),
-//     );
-//   }
-//
-//   Widget _customScrollView (BuildContext context)
-//   {
-//     return Container(
-//       child: CustomScrollView(
-//         slivers: <Widget> [
-//           SliverPersistentHeader(
-//             pinned: true,
-//             delegate: HomePageHeader(
-//              // layoutGroup: layoutGroup,
-//               onLayoutToggle: onLayoutToggle,
-//               minExtent: 150.0,
-//               maxExtent: 250.0,
-//             )
-//           ),
-//         ]
-//       )
-//     );
-//
-//   }
-//}
-
-
-
-// void main() {
-//   runApp(MyApp());
-// //   runApp(Post());
-//   // runApp(PageViews());
-// }
 
 class MyApp extends StatelessWidget {
   // Root Widget of App
@@ -225,7 +101,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// Create the Class for the (Sports) Tiles
+//////////////////////////////////////////////
+// Create the Class for the (Sports) Tiles //
+/////////////////////////////////////////////
 class Tile
 {
   String title;
@@ -233,7 +111,9 @@ class Tile
   Tile(this.title, [this.children = const <Tile>[]]);
 }
 
-// List of Sports
+/////////////////////
+// List of Sports //
+////////////////////
 List<Tile> sports = <Tile> [
   new Tile('Baseball'),
   new Tile('Basketball',
@@ -303,9 +183,7 @@ class SportsTiles extends StatelessWidget
     if (t.children.isEmpty)
       {
         return new ListTile(
-            //subtitle: Image.asset('images/bsb.jpg', fit: BoxFit.cover),
             title: new Text(t.title, style: TextStyle(color: Colors.white, fontSize: 20, fontFamily: 'Quicksand')),
-         //   onTap: () => print("Hello!")
             onTap: ()
             {
               if (t.title == "Baseball")
@@ -404,16 +282,10 @@ class SportsTiles extends StatelessWidget
               }
 
             }
-           // minLeadingWidth: 10.0,
         );
       }
 
     return new ExpansionTile(
-      //backgroundColor: Colors.grey,
-     // expandedAlignment: Alignment.center,
-     // initiallyExpanded: true,
-     // key: new PageStorageKey<Tile>(t),
-
       title: new Text(t.title, style: TextStyle(color: Colors.white, fontSize: 20, fontFamily: 'Quicksand')),
       children: t.children.map(_buildTiles).toList(),
     );
@@ -432,12 +304,6 @@ class _HomePage extends State<HomePage>
   {
     launch(url);
   }
- // Future <void> _launched;
-
-  // Future <void> _launchURL(String url)
-  // {
-  //   return launch(url);
-  // }
 
   @override
   Widget build (BuildContext context)
@@ -445,13 +311,9 @@ class _HomePage extends State<HomePage>
     String _url = 'https://portal.stretchinternet.com/plu/#';
 
     return Scaffold (
-     // endDrawer: ClipPath(
-      //  clipper: _DrawerClipper(),
-      //  child: Drawer(
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
-         // padding: EdgeInsets.only(top: 48),
           children: <Widget> [
             Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -469,41 +331,21 @@ class _HomePage extends State<HomePage>
             ),
 
             ListTile(
-               // tileColor: Colors.grey,
               title: Text("Live Stream", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15, fontFamily: 'Quicksand')),
                 enableFeedback: true,
               onTap: () => _launchURL(_url),
-              // onTap: () => setState(() {
-              //   _launched = _launchURL(_url);
-              // }),
             ),
 
             ListTile(
-             // tileColor: Colors.grey,
               title: Text("News", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, fontFamily: 'Quicksand')),
               enableFeedback: true,
               onTap: () => _launchURL('https://golutes.com/archives')
             ),
 
             ListTile(
-              //tileColor: Colors.grey,
               title: Text("Instagram", style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold, fontFamily: 'Quicksand')),
-             // enableFeedback: true,
               onTap: () async => {
                 await launch('https://www.instagram.com/golutes/')
-
-
-
-               // Navigator.push(context, MaterialPageRoute(builder: (context) => Instagram()))
-                //await launch('https://www.instagram.com/golutes/')
-
-                // await Navigator.of(context).push(MaterialPageRoute(
-                //   builder: (BuildContext context) => Instagram(),
-                // ))
-
-               // Navigator.push(context, MaterialPageRoute(builder: (context) => Instagram()))
-
-                //_launchURL('https://twitter.com/golutes')
               }
             ),
 
@@ -531,9 +373,8 @@ class _HomePage extends State<HomePage>
               }
             )]),
           ])
-
-
       ),
+
         body: CustomScrollView(
             slivers: <Widget> [
               SliverAppBar(
@@ -567,81 +408,11 @@ class _HomePage extends State<HomePage>
                   child: Column(
                     children: <Widget> [SportsTiles(sports[index], context),],
                   ),
-
-
-
-                  /////////////////
-                  // OPTION !!! ///
-                  /////////////////
-                  // child: new SportsTiles(sports[index]),
-
-                  /////////////////
-                  // OPTION !!! ///
-                  /////////////////
-                  // child: ListView.builder(
-                  //     itemBuilder: (BuildContext context, int index) {
-                  //       return new SportsTiles(sports[index]);
-                  //     },
-                  // itemCount: sports.length,
-                  // ),
-
-                  /////////////////
-                  // OPTION !!! ///
-                  /////////////////
-                  // child: Column(
-                  //   crossAxisAlignment: CrossAxisAlignment.start,
-                  //   children: <Widget> [
-                  //     ListView.builder(
-                  //         itemBuilder: (BuildContext context, int index)
-                  //     {
-                  //       return new SportsTiles(sports[index]);
-                  //     },
-                  //     itemCount: sports.length,
-                  //     ),
-                  //   ],
-                  // )
                 );
               }, childCount: sports.length,
           )
         ),
-
-        // SliverToBoxAdapter(
-        //   child: Center(
-        //     child: SizedBox(
-        //       height: 2000,
-        //       child: Text('Scroll'),
-        //     )
-        //   )
-        // ),
-
-        // SliverGrid(
-        //   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-        //     maxCrossAxisExtent: 200.0,
-        //     mainAxisExtent: 0.0,
-        //     crossAxisSpacing: 0.0,
-        //     childAspectRatio: 0.75,
-        //   ),
-        //
-        //   delegate: SliverChildBuilderDelegate(
-        //       (BuildContext context, int index)
-        //   {
-        //     return Container(
-        //       alignment: Alignment.center,
-        //       color: Colors.teal[100 * (index % 9)],
-        //       //color: Colors.transparent,
-        //      // padding: EdgeInsets.all(5.0),
-        //       child: Text("HELLO",
-        //       ),
-        //     );
-        //   },
-        //     childCount: 9,
-        //
-        //   ),
-        // )
-
-
       ]
-
     )
     );
   }
@@ -680,7 +451,6 @@ class _DrawerClipper extends CustomClipper<Path>
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => true;
-
 }
 
 // class HomePage extends StatefulWidget

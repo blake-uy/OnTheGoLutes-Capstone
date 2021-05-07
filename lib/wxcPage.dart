@@ -1,4 +1,26 @@
 import 'package:flutter/material.dart';
+import 'wxcScheduleScrap.dart';
+
+class WXCPlayers
+{
+  WXCPlayers({this.name, this.year, this.hometown, this.highSchool, this.image});
+  final String name;
+  final String year;
+  final String hometown;
+  final String highSchool;
+  final NetworkImage image;
+}
+
+List<WXCPlayers> wxcplayers = <WXCPlayers>[
+  WXCPlayers(name: "Josie Austin", year: "Freshman", hometown: "Auburn, WA", highSchool: "Auburn Mountainview HS", image: NetworkImage('https://golutes.com/images/2020/9/30/Austin.JPG?width=300')),
+  WXCPlayers(name: "Carly Dailey", year: "Junior", hometown: "Honolulu, HI", highSchool: "Moanalua HS", image: NetworkImage("https://golutes.com/images/2019/8/28/Dailey.jpg?width=300")),
+  WXCPlayers(name: "Sulin Degollado", year: "Sophomore", hometown: "Puyallup, WA", highSchool: "Rogers HS", image: NetworkImage("https://golutes.com/images/2019/8/28/Degollado.jpg?width=300")),
+  WXCPlayers(name: "Anna Iverson", year: "Freshman", hometown: "Juneau, AL", highSchool: "Juneau-Douglas HS", image: NetworkImage("https://golutes.com/images/2020/9/30/Iverson_A.jpg?width=300")),
+  WXCPlayers(name: "Brittany Iverson", year: "Senior", hometown: "Puyallup, WA", highSchool: "Emerald Ridge HS", image: NetworkImage("https://golutes.com/images/2020/9/30/Iverson_B.jpg?width=3000")),
+  WXCPlayers(name: "Alicia Krivanek", year: "Junior", hometown: "Redmond, WA", highSchool: "Cedarcrest HS", image: NetworkImage("https://golutes.com/images/2020/9/30/Krivanek.JPG?width=300")),
+  WXCPlayers(name: "Sarah Paquet", year: "Junior", hometown: "Olympia, WA", highSchool: "Olympia Regional Academy", image: NetworkImage("https://golutes.com/images/2020/9/30/Paquet.JPG?width=300")),
+  WXCPlayers(name: "Joan Park", year: "Junior", hometown: "Mountlake Terrace, WA", highSchool: "Mountlake Terrace HS", image: NetworkImage("https://golutes.com/images/2020/9/30/Park.JPG?width=300")),
+];
 
 class WXCPage extends StatefulWidget
 {
@@ -62,22 +84,22 @@ class _SliverAppBarWithTabs extends State<WXCPage> with SingleTickerProviderStat
                 Tab (
                     child: Align(
                         alignment: Alignment.center,
-                        child: Text("SCHEDULE")
+                        child: Text("SCHEDULE", style: TextStyle(fontWeight: FontWeight.bold))
                     )),
                 Tab (
                     child: Align(
                         alignment: Alignment.center,
-                        child: Text("ROSTER")
+                        child: Text("ROSTER", style: TextStyle(fontWeight: FontWeight.bold))
                     )),
                 Tab (
                     child: Align(
                         alignment: Alignment.center,
-                        child: Text("COACHES")
+                        child: Text("COACHES", style: TextStyle(fontWeight: FontWeight.bold))
                     )),
                 Tab (
                     child: Align(
                         alignment: Alignment.center,
-                        child: Text("STATISTICS")
+                        child: Text("STATISTICS", style: TextStyle(fontWeight: FontWeight.bold))
                     )),
 
               ],
@@ -90,8 +112,88 @@ class _SliverAppBarWithTabs extends State<WXCPage> with SingleTickerProviderStat
               //controller: controller ,
               controller: controller,
               children: <Widget>[
-                Center(child: Text("TAB ONE")),
-                Center(child: Text("TAB TWO")),
+                CustomScrollView(slivers: <Widget>[
+                  SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                          (BuildContext context, int index) {
+                        return Container(
+                          padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                          height: 100.0,
+                          decoration: BoxDecoration(
+                            border: Border(
+                                bottom:
+                                BorderSide(color: Colors.grey, width: 1.0)),
+                          //  color: Colors.black,
+                          ),
+                          // color: Colors.amber,
+                          alignment: Alignment.center,
+
+                          ///////////////
+                          // SCHEDULE //
+                          //////////////
+                          child: Column(children: <Widget>[
+                            Text(
+                              justOpponents[index],
+                              style: TextStyle(
+                                  color: Colors.black, fontSize: 19.5),
+                            ),
+                            SizedBox(height: 10.0),
+                            Text(
+                              months[index] + " " + dayNumOnly[index] + "  @ " + timeOnly[index] + timeLabels[index],
+                              style: TextStyle(
+                                  fontSize: 15.0, color: Colors.black,)
+                            ),
+                          ]),
+                        );
+                      },
+                      childCount: justOpponents.length,
+                    ),
+                  )
+                ]),
+                Container(
+                  // color: Colors.black,
+                    child: ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount: wxcplayers.length,
+                        itemBuilder: (BuildContext context, int index)
+                        {
+                          return Container (
+                              decoration: BoxDecoration(
+                                // color: Colors.black,
+                                border: Border(bottom: BorderSide(color: Colors.grey, width: 2.0)),
+                              ),
+                              child: Row(
+                                  children: <Widget> [
+                                    Container(
+                                      height: 120.0,
+                                      width: 100.0,
+                                      margin: EdgeInsets.all(5.0),
+                                      decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: wxcplayers[index].image,
+                                          )
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 15.0,
+                                    ),
+                                    Center(child: Column(
+                                        children: <Widget>[
+                                          Center(child:
+                                          Text(wxcplayers[index].name, style: TextStyle(fontSize: 25.0,), textAlign: TextAlign.center,)),
+                                          Text(wxcplayers[index].year + " / " + wxcplayers[index].hometown,
+                                              style: TextStyle(fontSize: 17.0, ), textAlign: TextAlign.center),
+                                          Text(wxcplayers[index].highSchool, style: TextStyle(fontSize: 16.0,), textAlign: TextAlign.center,),
+                                          // Text(players[index].hometown + " / " + players[index].highSchool),
+                                        ]
+                                    )
+                                    ),
+                                  ]
+                              )
+                          );
+                        }
+                    )
+                ),
                 Center(child: Text("TAB THREE")),
                 Center(child: Text("TAB FOUR")),
               ],

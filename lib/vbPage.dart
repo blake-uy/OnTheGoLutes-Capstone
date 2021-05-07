@@ -1,6 +1,40 @@
 import 'package:flutter/material.dart';
 import 'volleyballScheduleScrap.dart';
 
+class VballPlayers2
+{
+  VballPlayers2({this.number, this.name, this.year, this.hometown, this.highSchool, this. position, this.height, this.image});
+  final String number;
+  final String name;
+  final String year;
+  final String hometown;
+  final String highSchool;
+  final String position;
+  final String height;
+  final NetworkImage image;
+}
+
+List<VballPlayers2> vballplayers2 = <VballPlayers2>[
+  VballPlayers2(number: "#1", name: "Lauren Wilson", year: "Senior", hometown: "Olympia, WA", highSchool: "Olympia", position: "OH", height: """ 5'11" """, image: NetworkImage('https://golutes.com/images/2020/9/28/Wilson.JPG?width=300')),
+  VballPlayers2(number: "#2", name: "McKenzie Pfeiffer", year: "Junior", hometown: "Corona, CA", highSchool: "Corona Centennial", position: "OH", height: """ 6'1" """, image: NetworkImage("https://golutes.com/images/2020/9/28/Pfeiffer.JPG?width=300")),
+  VballPlayers2(number: "#3", name: "Savanna Service", year: "Senior", hometown: "Federal Way, WA", highSchool: "Todd Beamer", position: "MB", height: """ 6'2" """, image: NetworkImage("https://golutes.com/images/2020/9/28/service.JPG?width=300")),
+  VballPlayers2(number: "#4", name: "Sianna Iverson", year: "Freshman", hometown: "Pasco, WA", highSchool: "Chiawana", position: "OH", height: """ 5'11" """, image: NetworkImage("https://golutes.com/images/2020/9/28/Iverson.JPG?width=300")),
+  VballPlayers2(number: "#5", name: "Torie Takeuchi", year: "Freshman", hometown: "Aiea, HI", highSchool: "Iolani School", position: "DS", height: """ 5'6" """, image: NetworkImage("https://golutes.com/images/2020/9/28/Takeuchi.JPG?width=300")),
+  VballPlayers2(number: "#6", name: "Baylee Johnson", year: "Sophomore", hometown: "Glenwood Springs, CO", highSchool: "Glenwood", position: "OH", height: """ 5'11" """, image: NetworkImage("https://golutes.com/images/2020/9/28/Johnson.JPG?width=300")),
+  VballPlayers2(number: "#7", name: "Jazz Alston", year: "Junior", hometown: "Hilo, HI", highSchool: "Waiakea", position: "MB", height: """ 5'9" """, image: NetworkImage("https://golutes.com/images/2020/9/28/Alston.JPG?width=300")),
+  VballPlayers2(number: "#8", name: "Kristin Moniz", year: "Junior", hometown: "Kaneohe, HI", highSchool: "Hawaii Baptist", position: "L", height: """ 5'5" """, image: NetworkImage("https://golutes.com/images/2020/9/28/Moniz.JPG?width=300")),
+  VballPlayers2(number: "#9", name: "Hope Baldyga", year: "Junior", hometown: "Buckley, WA", highSchool: "White River", position: "DS/L", height: """ 5'6" """, image: NetworkImage("https://golutes.com/images/2020/9/28/Baldyga.JPG?width=300")),
+  VballPlayers2(number: "#10", name: "Emily Dickson", year: "Freshman", hometown: "Pasco, WA", highSchool: "Tri-Cities Prep", position: "MB", height: """ 5'10" """, image: NetworkImage("https://golutes.com/images/2020/9/28/Dickson.JPG?width=3000")),
+  VballPlayers2(number: "#11", name: "Emily Dulaney", year: "Junior", hometown: "Mililani, HI", highSchool: "Moanalua", position: "S", height: """ 5'8" """, image: NetworkImage("https://golutes.com/images/2020/9/28/Dulaney.JPG?width=300")),
+  VballPlayers2(number: "#12", name: "Ne'a Moffett", year: "Freshman", hometown: "Shelton, WA", highSchool: "Shelton", position: "MB", height: """ 5'9" """, image: NetworkImage("https://golutes.com/images/2020/9/28/Moffett.JPG?width=300")),
+  VballPlayers2(number: "#13", name: "Emily Zink", year: "Junior", hometown: "Spokane, WA", highSchool: "Gonzaga Prep", position: "S", height: """ 5'7" """, image: NetworkImage("https://golutes.com/images/2020/9/28/Zink.JPG?width=300")),
+  VballPlayers2(number: "#14", name: "Hailey Iha", year: "Sophomore", hometown: "Lihue, HI", highSchool: "Kauai", position: "MB", height: """ 5'11" """, image: NetworkImage("https://golutes.com/images/2020/9/28/Iha.JPG?width=300")),
+  VballPlayers2(number: "#15", name: "Halle Hetzler", year: "Sophomore", hometown: "Kailua, HI", highSchool: "Le Jardin Academy", position: "L", height: """ 5'7" """, image: NetworkImage("https://golutes.com/images/2020/9/28/Hetzler.JPG?width=300")),
+  VballPlayers2(number: "#16", name: "Madeline Dawson", year: "Sophomore", hometown: "Billings, MT", highSchool: "Billings West", position: "OH/DS", height: """ 5'8" """, image: NetworkImage("https://golutes.com/images/2020/9/28/Dawson.JPG?width=300")),
+  VballPlayers2(number: "#17", name: "Breeze Bartle", year: "Freshman", hometown: "Hillsboro, OR", highSchool: "Liberty", position: "MB", height: """ 6'0" """, image: NetworkImage("https://golutes.com/images/2020/9/28/Bartle.JPG?width=3000")),
+  VballPlayers2(number: "#18", name: "Jana Mulder", year: "Freshman", hometown: "Tacoma, WA", highSchool: "Washington", position: "DS", height: """ 5'6" """, image: NetworkImage("https://golutes.com/images/2020/9/28/Mulder.JPG?width=300")),
+];
+
 class VBPage extends StatefulWidget
 {
   @override
@@ -112,17 +146,19 @@ class _SliverAppBarWithTabs extends State<VBPage> with SingleTickerProviderState
                           //////////////
 
                           child: Column(children: <Widget>[
+                            //Image( image: NetworkImage(finalLogos[index])),
                             Text(
                               justOpponents[index],
                               style: TextStyle(
-                                  color: Colors.black, fontSize: 20.0),
+                                  color: Colors.black, fontSize: 19.5),
                             ),
                             SizedBox(height: 10.0),
                             Text(
-                              dateAndTime[index],
+                              //dateAndTime[index],
+                              months[index] + " " + dayNumOnly[index] + "  @ " + timeOnly[index] + timeLabels[index],
                               style: TextStyle(
                                   fontSize: 15.0, color: Colors.black),
-                            )
+                            ),
                           ]),
                         );
                       },
@@ -130,7 +166,53 @@ class _SliverAppBarWithTabs extends State<VBPage> with SingleTickerProviderState
                     ),
                   )
                 ]),
-                Center(child: Text("TAB TWO")),
+
+                /////////////
+                // ROSTER //
+                ////////////
+                Container(
+                   // color: Colors.black,
+                    child: ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount: vballplayers2.length,
+                        itemBuilder: (BuildContext context, int index)
+                        {
+                          return Container (
+                              decoration: BoxDecoration(
+                               // color: Colors.black,
+                                border: Border(bottom: BorderSide(color: Colors.grey, width: 2.0)),
+                              ),
+                              child: Row(
+                                  children: <Widget> [
+                                    Container(
+                                      height: 120.0,
+                                      width: 100.0,
+                                      margin: EdgeInsets.all(5.0),
+                                      decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: vballplayers2[index].image,
+                                          )
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 15.0,
+                                    ),
+                                    Center(child: Column(
+                                        children: <Widget>[
+                                          Text(vballplayers2[index].number + " " + vballplayers2[index].name, style: TextStyle(fontSize: 25.0, ), textAlign: TextAlign.center,),
+                                          Text(vballplayers2[index].position + " / " + vballplayers2[index].height + " / " + vballplayers2[index].year,
+                                              style: TextStyle(fontSize: 20.0,), textAlign: TextAlign.center),
+                                          Text(vballplayers2[index].hometown + " / " + vballplayers2[index].highSchool, style: TextStyle(fontSize: 14.8,), textAlign: TextAlign.center,),
+                                          // Text(players[index].hometown + " / " + players[index].highSchool),
+                                        ]
+                                    )
+                                    ),
+                                  ]
+                              )
+                          );
+                        }
+                    )
+                ),
                 Center(child: Text("TAB THREE")),
                 Center(child: Text("TAB FOUR")),
               ],

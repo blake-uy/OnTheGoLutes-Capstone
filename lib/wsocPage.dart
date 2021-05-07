@@ -476,7 +476,7 @@ class _SliverAppBarWithTabs extends State<WSOCPage>
             // TABS //
             //////////
             bottom: TabBar(
-              labelColor: Colors.amber,
+              labelColor: Colors.white,
               //labelPadding: EdgeInsets.fromLTRB(5, 5, 5, 5),
               unselectedLabelColor: Colors.white,
               // indicatorSize: TabBarIndicatorSize.label,
@@ -550,12 +550,6 @@ class _SliverAppBarWithTabs extends State<WSOCPage>
                               style: TextStyle(
                                   fontSize: 15.0, color: Colors.white),
                             ),
-                            // Text(
-                            //   "@" + " " + timeOnly[index],
-                            //   style: TextStyle(
-                            //     fontSize: 15.0, color: Colors.white),
-                            //   ),
-
                           ]),
                         );
                       },
@@ -784,10 +778,6 @@ class _SliverAppBarWithTabs extends State<WSOCPage>
                                       color: Colors.white)),
                             ]),
                           ])),
-
-
-
-
                     ])),
 
                 ////////////

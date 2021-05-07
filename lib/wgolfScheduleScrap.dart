@@ -17,7 +17,7 @@ List <String> dateAndTime = [];
 List <String> months = [];
 List <String> dayNumOnly = [];
 List <String> timeOnly = [];
-List <String> timeLabels = ['AM', 'AM', 'AM', 'PM', 'PM'];
+List <String> timeLabels = ['PM', 'AM', '', '', ''];
 
 ///////////////
 // OPTION 2 // => Create an Info Object
@@ -35,7 +35,7 @@ class Info
 //////////////////////////////////////////
 Future initiate(BaseClient client) async
 {
-  Response response = await client.get('https://golutes.com/sports/womens-swimming-and-diving/schedule');
+  Response response = await client.get('https://golutes.com/sports/womens-golf/schedule');
 
   if (response.statusCode != 200)
   {
