@@ -61,6 +61,9 @@ import 'mgolfScheduleScrap.dart' as mgolfScheduleScrap;
 import 'msocScheduleScrap.dart' as msocScheduleScrap;
 import 'mtenScheduleScrap.dart' as mtenScheduleScrap;
 import 'mtfScheduleScrap.dart' as mtfScheduleScrap;
+import 'msocStatsPage.dart' as msocStatsScrap;
+import 'mbskStatsScrap.dart' as mbskStatsScrap;
+import 'footballStatsScrap.dart' as footballStatsScrap;
 
 //////////////////////
 // FOR WEB SCRAPING //
@@ -83,6 +86,9 @@ Future main(List<String> arguments) async
   print(await msocScheduleScrap.initiate(Client()));
   print(await mtenScheduleScrap.initiate(Client()));
   print(await mtfScheduleScrap.initiate(Client()));
+  print(await msocStatsScrap.initiate(Client()));
+  print(await mbskStatsScrap.initiate(Client()));
+  print(await footballStatsScrap.initiate(Client()));
   runApp(MyApp());
 }
 
@@ -367,8 +373,6 @@ class _HomePage extends State<HomePage>
               }
             )]),
           ])
-
-
       ),
         body: CustomScrollView(
             slivers: <Widget> [

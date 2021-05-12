@@ -15,7 +15,7 @@ List <String> statName = [];
 //////////////////////////////////////////
 Future initiate(BaseClient client) async
 {
-  Response response = await client.get('https://golutes.com/sports/womens-soccer/stats/2020');
+  Response response = await client.get('https://golutes.com/sports/mens-soccer/stats/2020');
 
   if (response.statusCode != 200)
   {
@@ -36,7 +36,7 @@ Future initiate(BaseClient client) async
   //////////////////////////////
   for (var link in links)
   {
-   // print(link);
+    // print(link);
     linkMap.add(
         {
           'dataPoint ' : link.innerHtml,
@@ -63,9 +63,9 @@ Future initiate(BaseClient client) async
   }
 
   for (int i = 1; i < 15; i++)
-    {
-      statName.addAll(nameMap[i].values);
-    }
+  {
+    statName.addAll(nameMap[i].values);
+  }
 
   //print(statName);
 
@@ -75,5 +75,3 @@ Future initiate(BaseClient client) async
 
 
 }
-
-

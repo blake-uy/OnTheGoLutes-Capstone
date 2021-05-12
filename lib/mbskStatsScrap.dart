@@ -13,12 +13,10 @@ List <String> statName = [];
 ///////////////////////////////////////////
 // START OF PROGRAM TO GET SCRAPED DATA //
 //////////////////////////////////////////
-Future initiate(BaseClient client) async
-{
-  Response response = await client.get('https://golutes.com/sports/womens-soccer/stats/2020');
+Future initiate(BaseClient client) async {
+  Response response = await client.get('https://golutes.com/sports/mens-basketball/stats/2020-2120');
 
-  if (response.statusCode != 200)
-  {
+  if (response.statusCode != 200){
     return response.body;
   }
 
@@ -34,46 +32,34 @@ Future initiate(BaseClient client) async
   ///////////////////////////////
   // Opponent Name + Date/Time //
   //////////////////////////////
-  for (var link in links)
-  {
-   // print(link);
-    linkMap.add(
-        {
+  for (var link in links) {
+    linkMap.add({
           'dataPoint ' : link.innerHtml,
         }
     );
   }
 
-  for (int y = 2; y < 30; y++)
-  {
+  //print(linkMap);
 
+  for (int y = 2; y < 58; y++) {
     stats.addAll(linkMap[y].values);
 
   }
 
-  //print(stats);
+  //print (stats);
 
   for (var link in name)
   {
-    nameMap.add(
-        {
+    nameMap.add({
           'Name ' : link.innerHtml,
         }
     );
   }
 
-  for (int i = 1; i < 15; i++)
-    {
-      statName.addAll(nameMap[i].values);
-    }
+  for (int i = 1; i < 29; i++) {
+    statName.addAll(nameMap[i].values);
+  }
 
-  //print(statName);
-
-  //print(stats.length);
-  //print(statName.length);
-
-
+  //print (statName);
 
 }
-
-

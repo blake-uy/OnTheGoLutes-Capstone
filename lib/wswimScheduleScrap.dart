@@ -44,7 +44,7 @@ class Info {
     );
   }
 
-  print("MAP");
+  //print("MAP");
   //print(linkMap.length);
   //print(linkMap[0].values);
 
@@ -73,7 +73,7 @@ class Info {
 
 
 
-  print("WOMEN'S SWIM GAME INFO");
+  //print("WOMEN'S SWIM GAME INFO");
   // print(justOpponents);
   // print(dateAndTime);
   //print(gameInfo);

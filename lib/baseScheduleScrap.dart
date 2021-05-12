@@ -35,7 +35,7 @@ Future initiate(BaseClient client) async{
     );
   }
 
-  print("MAP");
+  //print("MAP");
 
   int x = 0;
   for (var i in linkMap){
@@ -52,5 +52,5 @@ Future initiate(BaseClient client) async{
 
     dateAndTime.add(tempList[1]);
   }
-  print("BASEBALL GAME INFO");
+  //print("BASEBALL GAME INFO");
 }

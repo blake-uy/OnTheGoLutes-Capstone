@@ -82,11 +82,11 @@ Future initiate(BaseClient client) async
 
   }
 
-  print(logos);
+  //print(logos);
 
   // Info.fromJson(Map<String, dynamic> json) : 'opponent' = json['Opponent'], 'link' = json['Link'];
 
-  print("MAP");
+  //print("MAP");
   //print(linkMap.length);
   //print(linkMap[0].values);
 
@@ -115,7 +115,7 @@ Future initiate(BaseClient client) async
 
 
 
-  print("WOMEN'S SOFTBALL GAME INFO");
+  //print("WOMEN'S SOFTBALL GAME INFO");
   // print(justOpponents);
   // print(dateAndTime);
   //print(gameInfo);

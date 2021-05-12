@@ -36,7 +36,7 @@ Future initiate(BaseClient client) async
   //////////////////////////////
   for (var link in links)
   {
-   // print(link);
+    // print(link);
     linkMap.add(
         {
           'dataPoint ' : link.innerHtml,
@@ -63,17 +63,15 @@ Future initiate(BaseClient client) async
   }
 
   for (int i = 1; i < 15; i++)
-    {
-      statName.addAll(nameMap[i].values);
-    }
+  {
+    statName.addAll(nameMap[i].values);
+  }
 
   //print(statName);
 
   //print(stats.length);
-  //print(statName.length);
+  //(statName.length);
 
 
 
 }
-
-
