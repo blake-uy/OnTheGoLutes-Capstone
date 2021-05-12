@@ -30,7 +30,7 @@ class _SliverAppBarWithTabs extends State<FBPage> with SingleTickerProviderState
             //  title: Text("BASEBALL"),
             // title: Text('BASEBALL', style: TextStyle(fontSize: 25.0,)),
             pinned: true,
-            backgroundColor: Colors.grey,
+            backgroundColor: Colors.black,
            // elevation: 0,
             expandedHeight: 175.0,
             //  collapsedHeight: 57,
@@ -49,7 +49,7 @@ class _SliverAppBarWithTabs extends State<FBPage> with SingleTickerProviderState
             // TAB BAR //
             /////////////
             bottom: TabBar(
-              labelColor: Colors.black,
+              labelColor: Colors.amber,
               //labelPadding: EdgeInsets.fromLTRB(5, 5, 5, 5),
               unselectedLabelColor: Colors.white,
               // indicatorSize: TabBarIndicatorSize.label,
@@ -57,7 +57,7 @@ class _SliverAppBarWithTabs extends State<FBPage> with SingleTickerProviderState
               indicator: BoxDecoration(
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5)),
                 // color: Colors.white.withOpacity(0.8),
-                color: Colors.white,
+                color: Colors.black,
               ),
               isScrollable: true,
               tabs: [
@@ -170,47 +170,287 @@ class _SliverAppBarWithTabs extends State<FBPage> with SingleTickerProviderState
                         }
                     )
                 ),
-                Container(
-                    color: Colors.black,
-                    child: ListView.builder(
-                        scrollDirection: Axis.vertical,
-                        itemCount: footCoaches.length,
-                        itemBuilder: (BuildContext context, int index)
-                        {
-                          return Container (
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                border: Border(bottom: BorderSide(color: Colors.grey, width: 2.0)),
-                              ),
-                              child: Row(
-                                  children: <Widget> [
-                                    Container(
-                                      height: 120.0,
-                                      width: 100.0,
-                                      margin: EdgeInsets.all(5.0),
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                            image: footCoaches[index].image,
-                                          )
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 15.0,
-                                    ),
-                                    Center(child: Column(
-                                        children: <Widget>[
-                                          Text(footCoaches[index].name, style: TextStyle(fontSize: 26.0, color: Colors.white), textAlign: TextAlign.center,),
-                                          Text(footCoaches[index].title, style: TextStyle(fontSize: 20.0, color: Colors.white), textAlign: TextAlign.center,),
 
-                                        ]
-                                    )
-                                    ),
-                                  ]
-                              )
-                          );
-                        }
-                    )
-                ),
+                /////////////
+                // COACHES //
+                /////////////
+                Container(
+                  //height: 800.0,
+                    color: Colors.black,
+                    child: ListView(scrollDirection: Axis.vertical, children: <Widget>
+                    [
+                      // SARA GRIFFIN START
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                            // color: Colors.grey[400],
+                              color: Colors.black,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.transparent))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//brant_mcadams.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//brant_mcadams.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 44.0),
+                            Column(children: <Widget>[
+                              Text("Brant McAdams",
+                                  style: TextStyle(
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white), textAlign: TextAlign.center,),
+                              Text("Head Coach",
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              Text("253-535-8311",
+                                  style: TextStyle(
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              Text("mcadambw@plu.edu",
+                                  style: TextStyle(
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white))
+                            ]),
+                          ])),
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                            //color: Colors.grey[400],
+                              border: Border(
+                                  bottom: BorderSide(color: Colors.white))),
+                          child: Column(children: <Widget>[
+                            Text(
+                                "About Seth: Current technical director for the locally based soccer club WPFC. Was named Head Coach for the Lutes back in 2015. Has lead the program to a 40-2-6 record in 6 years.",
+                                style: TextStyle(fontSize: 15.0, color: Colors.white)),
+
+                          ])),
+                      // SARA GRIFFIN END
+
+                      // JEANKIE ACZON START
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.white))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//crace.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//crace.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 30.0),
+                            Column(children: <Widget>[
+                              Text("Spencer Crace",
+                                style: TextStyle(
+                                    fontSize: 25.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Text("Offensive Coordinator",
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              Text("WR Coach",
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                            ]),
+                          ])),
+
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.white))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//keim.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//keim.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 30.0),
+                            Column(children: <Widget>[
+                              Text("Jud Keim",
+                                style: TextStyle(
+                                    fontSize: 25.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Text("Defensive Coordinator",
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              Text("DB Coach",
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                            ]),
+                          ])),
+
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.white))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//daley.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//daley.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 30.0),
+                            Column(children: <Widget>[
+                              Text("Ricky Daley",
+                                style: TextStyle(
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Text("Outside WR Coach",
+                                  style: TextStyle(
+                                      fontSize: 22.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                            ]),
+                          ])),
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.white))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//derek_sparks.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//derek_sparks.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 30.0),
+                            Column(children: <Widget>[
+                              Text("Derek Sparks",
+                                style: TextStyle(
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Text("Running Backs Coach",
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                            ]),
+                          ])),
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.white))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//gcrace.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//gcrace.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 30.0),
+                            Column(children: <Widget>[
+                              Text("George Crace",
+                                style: TextStyle(
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Text("Tight End Coach",
+                                  style: TextStyle(
+                                      fontSize: 22.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                            ]),
+                          ])),
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.white))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//trey_henderson.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//trey_henderson.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 30.0),
+                            Column(children: <Widget>[
+                              Text("Trey Henderson",
+                                style: TextStyle(
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Text("D- Line Coach",
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                            ]),
+                          ])),
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.white))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2019/8/20/Byrne_71.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2019/8/20/Byrne_71.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 30.0),
+                            Column(children: <Widget>[
+                              Text("Michael Byrne",
+                                style: TextStyle(
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Text("Quarterbacks Coach",
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                            ]),
+                          ])),
+                    ])),
+
                 Table(
                   // border: TableBorder.all(color: Colors.white60),
                     columnWidths: <int, TableColumnWidth> {
@@ -1173,7 +1413,7 @@ List<FootPlayers> footPlayers = <FootPlayers>[
   FootPlayers(number: "#1", name: "Alex Rendon", year: "Senior", hometown: "North Bend, WA", highSchool: "Mount Si", position: "WR", height: """ 5'9" """, image: NetworkImage('https://golutes.com/images/2021/2/18/Rendon.JPG?width=80')),
   FootPlayers(number: "#2", name: "Regan Divina", year: "Sophomore", hometown: "Olympia, WA", highSchool: "Capital", position: "DB", height: """ 5'8" """, image: NetworkImage('https://golutes.com/images/2020/11/20/DIVINA.JPG?width=80')),
   FootPlayers(number: "#2", name: "Jace Keim", year: "Junior", hometown: "Gig Harbor, WA", highSchool: "Peninsula", position: "WR", height: """ 5'10" """, image: NetworkImage("https://golutes.com/images/2020/11/20/KEIM.JPG?width=80")),
-  FootPlayers(number: "#3", name: "Liam Nabors", year: "Senior", hometown: "Vancouver, WA", highSchool: "King's Way Christian", position: "QB", height: """ 5'10" """, image: NetworkImage("https://golutes.com/images/2021/2/18/Nabors.JPG?width=80")),
+  FootPlayers(number: "#3", name: "Liam Nabors", year: "Senior", hometown: "Vancouver, WA", highSchool: "KWC", position: "QB", height: """ 5'10" """, image: NetworkImage("https://golutes.com/images/2021/2/18/Nabors.JPG?width=80")),
   FootPlayers(number: "#3", name: "Cheyn Tam-Switzer", year: "Sophomore", hometown: "Hilo, HI", highSchool: "Waiakea", position: "DB", height: """ 5'10" """, image: NetworkImage("https://golutes.com/images/2020/11/20/TAM_SWITZER.JPG?width=80")),
   FootPlayers(number: "#4", name: "Laakea Ane", year: "Sophomore", hometown: "Waianae, HI", highSchool: "Kamehameha", position: "TE", height: """ 5'8" """, image: NetworkImage("https://golutes.com/images/2020/11/20/ANE.JPG?width=80")),
   FootPlayers(number: "#4", name: "Kord Tuttle", year: "Sophomore", hometown: "Prosser, WA", highSchool: "Prosser", position: "DB", height: """ 5'9" """, image: NetworkImage("https://golutes.com/images/2020/11/20/TUTTLE.JPG?width=80")),
@@ -1259,22 +1499,6 @@ List<FootPlayers> footPlayers = <FootPlayers>[
 
 ];
 
-class FootCoaches
-{
-  FootCoaches({this.name, this.title, this.image});
-  final String name;
-  final String title;
-  final NetworkImage image;
-}
 
-List<FootCoaches> footCoaches = <FootCoaches>[
-  FootCoaches(name: "Brant McAdams", title: "Head Coach", image: NetworkImage('https://golutes.com/images/2018/4/24//brant_mcadams.jpg?width=80')),
-  FootCoaches(name: "Spencer Crace", title: "Offensive Coordinator/WR Coach", image: NetworkImage('https://golutes.com/images/2018/4/24//crace.jpg?width=80')),
-  FootCoaches(name: "Jud Keim", title: "Defensive Coordinator/DB Coach", image: NetworkImage('https://golutes.com/images/2018/4/24//keim.jpg?width=80')),
-  FootCoaches(name: "Ricky Daley", title: "Outside Wide Receivers Coach", image: NetworkImage('https://golutes.com/images/2018/4/24//daley.jpg?width=80')),
-  FootCoaches(name: "Derek Sparks", title: "Running Backs Coach", image: NetworkImage('https://golutes.com/images/2018/4/24//derek_sparks.jpg?width=80')),
-  FootCoaches(name: "George Crace", title: "Tight Ends Coach", image: NetworkImage('https://golutes.com/images/2018/4/24//gcrace.jpg?width=80')),
-  FootCoaches(name: "Trey Henderson", title: "Defensive Line Coach", image: NetworkImage('https://golutes.com/images/2018/4/24//trey_henderson.jpg?width=80')),
-  FootCoaches(name: "Michael Byrne", title: "Quarterbacks Coach", image: NetworkImage('https://golutes.com/images/2019/8/20/Byrne_71.jpg?width=80')),
-];
+
 

@@ -43,7 +43,7 @@ class _SliverAppBarWithTabs extends State<MBSKPage> with SingleTickerProviderSta
             ),
 
             bottom: TabBar(
-              labelColor: Colors.black,
+              labelColor: Colors.amber,
               //labelPadding: EdgeInsets.fromLTRB(5, 5, 5, 5),
               unselectedLabelColor: Colors.white,
               // indicatorSize: TabBarIndicatorSize.label,
@@ -51,7 +51,7 @@ class _SliverAppBarWithTabs extends State<MBSKPage> with SingleTickerProviderSta
               indicator: BoxDecoration(
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(5), topRight: Radius.circular(5)),
                 // color: Colors.white.withOpacity(0.8),
-                color: Colors.white,
+                color: Colors.black,
               ),
               isScrollable: true,
               tabs: [
