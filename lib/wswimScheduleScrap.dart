@@ -41,12 +41,10 @@ Future initiate(BaseClient client) async
     return response.body;
   }
 
-  //////////////////
-  // HTML Parser //
-  /////////////////
+  // HTML Parser
   var document = parse(response.body);
 
-  List links = document.querySelectorAll('div.sidearm-schedule-game-opponent-name > a');
+    List links = document.querySelectorAll('div.sidearm-schedule-game-opponent-name > a');
 
     List<Map<String, String>> linkMap = [];
 
@@ -68,8 +66,10 @@ Future initiate(BaseClient client) async
   int x = 0;
   for (var i in linkMap)
   {
+
     gameInfo.addAll(linkMap[x].values);
     x++;
+
   }
 
   /////////////////////////////////////////////////////////////////////
@@ -99,3 +99,5 @@ Future initiate(BaseClient client) async
     timeOnly.add(tempList[2]);
   }
 }
+
+

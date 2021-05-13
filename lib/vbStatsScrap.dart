@@ -12,7 +12,7 @@ List <String> statName = [];
 //////////////////////////////////////////
 Future initiate(BaseClient client) async
 {
-  Response response = await client.get('https://golutes.com/sports/womens-soccer/stats/2020');
+  Response response = await client.get('https://golutes.com/sports/womens-volleyball/stats/2020');
 
   if (response.statusCode != 200)
   {
@@ -43,7 +43,7 @@ Future initiate(BaseClient client) async
   ////////////////////////////////////////////////////
   // Just Get the Values From Dictionary (linkMap) //
   ///////////////////////////////////////////////////
-  for (int y = 2; y < 30; y++)
+  for (int y = 2; y < 42; y++)
   {
     stats.addAll(linkMap[y].values);
   }
@@ -63,10 +63,8 @@ Future initiate(BaseClient client) async
   //////////////////////
   // Just Stat Labels //
   //////////////////////
-  for (int i = 1; i < 15; i++)
-    {
-      statName.addAll(nameMap[i].values);
-    }
+  for (int i = 1; i < 21; i++)
+  {
+    statName.addAll(nameMap[i].values);
+  }
 }
-
-

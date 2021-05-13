@@ -38,9 +38,10 @@ import 'package:flutter/foundation.dart';
 import 'playerPortal.dart';
 import 'pageview.dart';
 import 'instaPage.dart';
+import 'settingsPage.dart';
 
 //////////////////////////
-// WEB SCRAPING IMPORTS // => SCHEDULES
+// WEB SCRAPING IMPORTS //
 //////////////////////////
 import 'package:http/http.dart';
 import 'webscrap1.dart' as webscraper1;
@@ -58,16 +59,8 @@ import 'wtfScheduleScrap.dart' as wtfScheduleScrap;
 // WEB SCRAPING IMPORTS // => STATS
 //////////////////////////
 import 'wsocStatsScrap.dart' as wsocStatsScrap;
-
-import 'mswimScheduleScrap.dart' as mswimScheduleScrap;
-import 'baseScheduleScrap.dart' as baseScheduleScrap;
-import 'mbskScheduleScrap.dart' as mbskScheduleScrap;
-import 'mxcScheduleScrap.dart' as mxcScheduleScrap;
-import 'footballScheduleScrap.dart' as footballScheduleScrap;
-import 'mgolfScheduleScrap.dart' as mgolfScheduleScrap;
-import 'msocScheduleScrap.dart' as msocScheduleScrap;
-import 'mtenScheduleScrap.dart' as mtenScheduleScrap;
-import 'mtfScheduleScrap.dart' as mtfScheduleScrap;
+import 'vbStatsScrap.dart' as vbStatsScrap;
+import 'wbskStatsScrap.dart' as wbskStatsScrap;
 
 //////////////////////
 // FOR WEB SCRAPING //
@@ -92,15 +85,8 @@ Future main(List<String> arguments) async
   // STAT SCRAPERS //
   ///////////////////
   print(await wsocStatsScrap.initiate(Client()));
-  print(await mswimScheduleScrap.initiate(Client()));
-  print(await baseScheduleScrap.initiate(Client()));
-  print(await mbskScheduleScrap.initiate(Client()));
-  print(await mxcScheduleScrap.initiate(Client()));
-  print(await footballScheduleScrap.initiate(Client()));
-  print(await mgolfScheduleScrap.initiate(Client()));
-  print(await msocScheduleScrap.initiate(Client()));
-  print(await mtenScheduleScrap.initiate(Client()));
-  print(await mtfScheduleScrap.initiate(Client()));
+  print(await vbStatsScrap.initiate(Client()));
+  print(await wbskStatsScrap.initiate(Client()));
 
   ////////////////////
   // Main File Call //
@@ -114,7 +100,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: "PLU ATHLETICS",
-        theme: ThemeData(fontFamily: 'Quicksand'),
+        darkTheme: ThemeData(
+          brightness: Brightness.dark,
+        ),
+        theme: ThemeData(
+            fontFamily: 'Quicksand',),
+       // brightness: Brightness.light,),
+        //primaryColor: Colors.amberAccent),
         home: HomePage(),
     );
   }
@@ -299,7 +291,6 @@ class SportsTiles extends StatelessWidget
               {
                 Navigator.push(c, MaterialPageRoute(builder: (context) => VBPage()));
               }
-
             }
         );
       }
@@ -339,8 +330,9 @@ class _HomePage extends State<HomePage>
                 children: <Widget> [
             DrawerHeader(
               child: Center( child: Text("Welcome to Luteville", style: TextStyle(fontSize: 40.0, fontFamily: 'Quicksand'))),
-              decoration: BoxDecoration(color: Colors.amber),
-            ),
+              decoration: BoxDecoration(
+                  color: Colors.amberAccent,
+            )),
 
             ListTile(
                 title: Text("Upcoming Events", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, fontFamily: 'Quicksand')),
@@ -371,6 +363,7 @@ class _HomePage extends State<HomePage>
             ListTile(
               title: Text("Twitter", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, fontFamily: 'Quicksand'),),
               onTap: () async => {
+              //  await Navigator.push(context, MaterialPageRoute(builder: (context) => Instagram()))
                 await launch('https://twitter.com/golutes')
               },
               enableFeedback: true,
@@ -379,6 +372,7 @@ class _HomePage extends State<HomePage>
             ListTile(
               title: Text("PLU Portal", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, fontFamily: 'Quicksand'),),
               onTap: () {
+                //Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => PlayerPortalPage()));
               }
             ),
@@ -386,7 +380,8 @@ class _HomePage extends State<HomePage>
             ListTile(
               title: Text("Settings", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, fontFamily: 'Quicksand')),
               onTap: () {
-                SystemSettings.app();
+                //SystemSettings.app();
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
               }
             )]),
           ])
@@ -411,6 +406,9 @@ class _HomePage extends State<HomePage>
           delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index)
               {
+                // onTap: (context) {
+                //   Navigator.push(context, MaterialPageRoute (builder: (context) => SecondPage()));
+                // };
                 return Container(
                  // height: 600.0,
                   alignment: Alignment.center,
@@ -439,16 +437,46 @@ class _DrawerClipper extends CustomClipper<Path>
   {
     Path path = Path();
 
+   // path.lineTo(size.width, 2);
+
     path.moveTo(50, 0);
     path.quadraticBezierTo(0, size.height/2, 50, size.height);
 
+
+    //path.quadraticBezierTo(size.width * 5, size.height/2, 0, size.height);
+
+   // path.lineTo();
+
     path.lineTo(size.width, size.height);
     path.lineTo(size.width, 0);
+
+
+   // path.lineTo(size.width, size.height);
+   // path.lineTo(size.width, 0);
+
+    //path.lineTo(0, size.height/2);
+    // path.lineTo(50, size.height);
+   // path.lineTo(size.width, 0);
 
     return path;
   }
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => true;
-
 }
+
+// class HomePage extends StatefulWidget
+// {
+//   @override
+//   _HomePageState createState() => _HomePageState();
+// }
+//
+// class _HomePageState extends State<HomePage> {
+//   @override
+//   Widget build (BuildContext context)
+//   {
+//     return Scaffold(
+//       appBar: AppBar(title: Text('PLU Athletics')),
+//     );
+//   }
+// }

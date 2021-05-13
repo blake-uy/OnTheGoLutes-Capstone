@@ -145,7 +145,6 @@ class _SliverAppBarWithTabs extends State<WSwimPage> with SingleTickerProviderSt
                           ///////////////
                           // SCHEDULE //
                           //////////////
-
                           child: Column(children: <Widget>[
                             //Image( image: NetworkImage(finalLogos[index])),
                             Text(
@@ -213,7 +212,72 @@ class _SliverAppBarWithTabs extends State<WSwimPage> with SingleTickerProviderSt
                         }
                     )
                 ),
-                Center(child: Text("TAB THREE")),
+
+                //////////////
+                // COACHES //
+                /////////////
+                Container(
+                  //height: 800.0,
+                    color: Colors.white,
+                    child: ListView(scrollDirection: Axis.vertical, children: <Widget>
+                    [
+                      // MATT SELLMAN START
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                            // color: Colors.grey[400],
+                              color: Colors.white,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.transparent))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//sellman.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//sellman.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 44.0),
+                            Column(children: <Widget>[
+                              Text("Matt Sellman",
+                                  style: TextStyle(
+                                      fontSize: 28,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black)),
+                              Text("Head Coach",
+                                  style: TextStyle(
+                                      fontSize: 25.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black)),
+                              Text("253-535-7370",
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black)),
+                              Text("sellmame@plu.edu",
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black))
+                            ]),
+                          ])),
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                            //color: Colors.grey[400],
+                              border: Border(
+                                  bottom: BorderSide(color: Colors.transparent))),
+                          child: Column(children: <Widget>[
+                            Text(
+                                "About Matt: A PLU Alum who took on the roles of aquatics director and Head Coach for the Lutes back in 2010. Has built the program into a regional powerhouse while earning Northwest Conference Coach of the Year accolades four times and steering the Lutes to three NWC Titles.",
+                                style: TextStyle(fontSize: 15.0, color: Colors.black)),
+                          ])),
+                      // MATT SELLMAN END
+                    ])),
+
+                ///////////
+                // STATS //
+                ///////////
                 Center(child: Text("TAB FOUR")),
               ],
             ),

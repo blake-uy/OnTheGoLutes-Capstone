@@ -634,7 +634,7 @@ class _SliverAppBarWithTabs extends State<WSOCPage>
                     color: Colors.black,
                     child: ListView(scrollDirection: Axis.vertical, children: <Widget>
                     [
-                      // SARA GRIFFIN START
+                      // SETH SPIDAHL START
                       Container(
                           padding: EdgeInsets.all(15.0),
                           decoration: BoxDecoration(
@@ -684,11 +684,10 @@ class _SliverAppBarWithTabs extends State<WSOCPage>
                             Text(
                                 "About Seth: Current technical director for the locally based soccer club WPFC. Was named Head Coach for the Lutes back in 2015. Has lead the program to a 40-2-6 record in 6 years.",
                                 style: TextStyle(fontSize: 15.0, color: Colors.white)),
-
                           ])),
-                      // SARA GRIFFIN END
+                      // SETH SPIDAHL END
 
-                      // JEANKIE ACZON START
+                      // SCOTT FORD START
                       Container(
                           padding: EdgeInsets.all(15.0),
                           decoration: BoxDecoration(
@@ -718,7 +717,9 @@ class _SliverAppBarWithTabs extends State<WSOCPage>
                                   color: Colors.white)),
                             ]),
                           ])),
+                      // SCOTT FORD END
 
+                      // KATE GREEN START
                       Container(
                           padding: EdgeInsets.all(15.0),
                           decoration: BoxDecoration(
@@ -748,7 +749,9 @@ class _SliverAppBarWithTabs extends State<WSOCPage>
                                       color: Colors.white)),
                             ]),
                           ])),
+                      // KATE GREEN END
 
+                      // NATE SALVESON START
                       Container(
                           padding: EdgeInsets.all(15.0),
                           decoration: BoxDecoration(
@@ -779,6 +782,7 @@ class _SliverAppBarWithTabs extends State<WSOCPage>
                             ]),
                           ])),
                     ])),
+                // NATE SALVESON END
 
                 ////////////
                 // STATS //
@@ -1145,7 +1149,7 @@ class _SliverAppBarWithTabs extends State<WSOCPage>
                     TableRow(
                         children: <Widget> [
                           Container(
-                            height: 43,
+                            height: 55,
                             color: Colors.black,
                             child: Center(child: Text(stats[24], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
                           ),
@@ -1154,12 +1158,12 @@ class _SliverAppBarWithTabs extends State<WSOCPage>
                               child: Container(
                                 color: Colors.amberAccent,
                                 child: Center( child: Text(statName[12], style: TextStyle(fontWeight: FontWeight.bold))),
-                                height: 43,
+                                height: 55,
                               )
                           ),
 
                           Container(
-                            height: 43,
+                            height: 55,
                             color: Colors.black,
                             child: Center(child: Text(stats[25], style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
                           ),

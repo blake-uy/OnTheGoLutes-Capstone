@@ -200,8 +200,129 @@ class _SliverAppBarWithTabs extends State<WGolfPage> with SingleTickerProviderSt
                     )
                 ),
 
+                //////////////
+                // COACHES //
+                /////////////
+                Container(
+                  //height: 800.0,
+                    color: Colors.white,
+                    child: ListView(scrollDirection: Axis.vertical, children: <Widget>
+                    [
+                      // SARA GRIFFIN START
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                            // color: Colors.grey[400],
+                              color: Colors.white,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.transparent))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//fosnick.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//fosnick.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 44.0),
+                            Column(children: <Widget>[
+                              Text("Sara Griffin",
+                                  style: TextStyle(
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black)),
+                              Text("Head Coach",
+                                  style: TextStyle(
+                                      fontSize: 25.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black)),
+                              Text("206-973-9139",
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black)),
+                              Text("griffise@plu.edu",
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black))
+                            ]),
+                          ])),
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                            //color: Colors.grey[400],
+                              border: Border(
+                                  bottom: BorderSide(color: Colors.black, width: 2.0))),
+                          child: Column(children: <Widget>[
+                            Text(
+                                "About Sara: On top of holding the Assistant PGA Golf Professional role at Tacoma Country & Golf Club, Griffin was named Head Coach for the Lutes back in 2016. She has guided the Lutes to top five finishes in seven of the eight tournaments during the 2018-2019 season.",
+                                style: TextStyle(fontSize: 15.0, color: Colors.black)),
+                          ])),
+                      // SARA GRIFFIN END
 
-                Center(child: Text("TAB THREE")),
+                      // JEANKIE ACZON START
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.black, width: 2.0))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//jeankie_jhen_aczon_wgolf_2016_17.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//jeankie_jhen_aczon_wgolf_2016_17.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 28.0),
+                            Column(children: <Widget>[
+                              Text("Jeankie Aczon",
+                                style: TextStyle(
+                                    fontSize: 29.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black),
+                              ),
+                              Text("Asst. Coach",
+                                  style: TextStyle(
+                                      fontSize: 25.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black)),
+                            ]),
+                          ])),
+                      // JEANKIE ACZON END
+
+                      // CARISSA SIMMONS START
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.white))),
+                          child: Row(children: <Widget>[
+                            SizedBox(width: 62.0),
+                            Column(children: <Widget>[
+                              Text("Carissa Simmons",
+                                style: TextStyle(
+                                    fontSize: 32.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black),
+                              ),
+                              Text("Asst. Coach",
+                                  style: TextStyle(
+                                      fontSize: 25.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black)),
+                            ]),
+                          ])),
+                      // CARISSA SIMMONS END
+                    ])),
+
+                ////////////
+                // STATS //
+                ///////////
                 Center(child: Text("TAB FOUR")),
               ],
             ),

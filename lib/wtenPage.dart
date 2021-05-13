@@ -194,7 +194,68 @@ class _SliverAppBarWithTabs extends State<WTenPage> with SingleTickerProviderSta
                         }
                     )
                 ),
-                Center(child: Text("TAB THREE")),
+
+                /////////////
+                // COACHES //
+                ////////////
+                Container(
+                  //height: 800.0,
+                    color: Colors.white,
+                    child: ListView(scrollDirection: Axis.vertical, children: <Widget>
+                    [
+                      // CHERI CAMPBELL START
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                            // color: Colors.grey[400],
+                              color: Colors.white,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.transparent))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2018/9/18/Campbell_C.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2018/9/18/Campbell_C.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 30.0),
+                            Column(children: <Widget>[
+                              Text("Cheri Campbell",
+                                  style: TextStyle(
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black)),
+                              Text("Head Coach",
+                                  style: TextStyle(
+                                      fontSize: 25.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black)),
+                              Text("360-791-5210",
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black)),
+                              Text("campbecm@plu.edu",
+                                  style: TextStyle(
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black))
+                            ]),
+                          ])),
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                            //color: Colors.grey[400],
+                              border: Border(
+                                  bottom: BorderSide(color: Colors.transparent))),
+                          child: Column(children: <Widget>[
+                            Text(
+                                "About Cheri: Before being appointed as Head Coach for the Lutes back in 2018, she served as head coach at North Thurston High School. During her time there, the Rams had state qualifiers in six of her eight years.",
+                                style: TextStyle(fontSize: 15.0, color: Colors.black)),
+                          ])),
+                      // CHERI CAMPBELL END
+                    ])),
                 Center(child: Text("TAB FOUR")),
               ],
             ),

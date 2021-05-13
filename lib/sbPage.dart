@@ -166,7 +166,167 @@ class _SliverAppBarWithTabs extends State<SBPage> with SingleTickerProviderState
                       }
                   )
                 ),
-                Center(child: Text("TAB THREE")),
+
+                // COACHES //
+                /////////////
+                Container(
+                  //height: 800.0,
+                    color: Colors.black,
+                    child: ListView(scrollDirection: Axis.vertical, children: <Widget>
+                    [
+                      // TRACI BARRETT START
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                            // color: Colors.grey[400],
+                              color: Colors.black,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.transparent))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2020/1/21/Barrett.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2020/1/21/Barrett.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 44.0),
+                            Column(children: <Widget>[
+                              Text("Traci Barrett",
+                                  style: TextStyle(
+                                      fontSize: 28,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              Text("Head Coach",
+                                  style: TextStyle(
+                                      fontSize: 25.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              Text("253-208-7787",
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              Text("barrettj@plu.edu",
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white))
+                            ]),
+                          ])),
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                            //color: Colors.grey[400],
+                              border: Border(
+                                  bottom: BorderSide(color: Colors.white))),
+                          child: Column(children: <Widget>[
+                            Text(
+                                "About Tracy: Was named Head Coach for the Lutes back in 2019, and lead the program to one of their most explosive offensive starts in the nation. Averaging 7.3 runs per game, this number topped that of the 2012 PLU National Championship Team.",
+                                style: TextStyle(fontSize: 15.0, color: Colors.white)),
+                          ])),
+                      // TRACI BARRETT END
+
+                      // DARYL ASHPOLE START
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.white))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2020/1/21/Ashpole.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2020/1/21/Ashpole.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 30.0),
+                            Column(children: <Widget>[
+                              Text("Daryl Ashpole",
+                                style: TextStyle(
+                                    fontSize: 27.5,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Text("Asst. Coach",
+                                  style: TextStyle(
+                                      fontSize: 25.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                            ]),
+                          ])),
+                      // DARYL ASHPOLE END
+
+                      // RON BALMER START
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.white))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2020/1/21/Balmer.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2020/1/21/Balmer.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 30.0),
+                            Column(children: <Widget>[
+                              Text("Ron Balmer",
+                                style: TextStyle(
+                                    fontSize: 32.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Text("Asst. Coach",
+                                  style: TextStyle(
+                                      fontSize: 25.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                            ]),
+                          ])),
+                      // RON BALMER END
+
+                      // TORI HAMURA START
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.white))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2020/1/21/Hamura.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2020/1/21/Hamura.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 30.0),
+                            Column(children: <Widget>[
+                              Text("Tori Hamura",
+                                style: TextStyle(
+                                    fontSize: 27,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Text("Asst. Coach",
+                                  style: TextStyle(
+                                      fontSize: 25.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                            ]),
+                          ])),
+                    ])),
+                // TORI HAMURA END
+
+                ///////////
+                // STATS //
+                ///////////
                 Center(child: Text("TAB FOUR")),
               ],
             ),

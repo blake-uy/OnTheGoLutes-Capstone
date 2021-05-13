@@ -198,8 +198,172 @@ class _SliverAppBarWithTabs extends State<CrewPage> with SingleTickerProviderSta
                         }
                     )
                 ),
-                Center(child: Text("TAB THREE")),
-                Center(child: Text("TAB FOUR")),
+
+                //////////////
+                // COACHES //
+                /////////////
+                Container(
+                  //height: 800.0,
+                    color: Colors.black,
+                    child: ListView(scrollDirection: Axis.vertical, children: <Widget>
+                    [
+                      // SETH SPIDAHL START
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                            // color: Colors.grey[400],
+                              color: Colors.black,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.transparent))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//foltz.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//foltz.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 44.0),
+                            Column(children: <Widget>[
+                              Text("Andy Foltz",
+                                  style: TextStyle(
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              Text("Head Coach",
+                                  style: TextStyle(
+                                      fontSize: 25.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              Text("253-686-4077",
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              Text("foltzae@plu.edu",
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white))
+                            ]),
+                          ])),
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                            //color: Colors.grey[400],
+                              border: Border(
+                                  bottom: BorderSide(color: Colors.white))),
+                          child: Column(children: <Widget>[
+                            Text(
+                                "About Andy: A four-time Northwest Conference Coach of the Year who was named Head Coach for the Lutes back in 2014. Has lead the program to four NWC titles throughout his time at PLU.",
+                                style: TextStyle(fontSize: 15.0, color: Colors.white)),
+                          ])),
+                      // SETH SPIDAHL END
+
+                      // BETH RATTERMAN START
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.white))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2019/12/6/Lute_Headshot.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2019/12/6/Lute_Headshot.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 30.0),
+                            Column(children: <Widget>[
+                              Text("Beth Ratterman",
+                                style: TextStyle(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Text("Asst. Coach",
+                                  style: TextStyle(
+                                      fontSize: 25.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                            ]),
+                          ])),
+                      // BETH RATTERMAN END
+
+                      // CAMILLE LEMKE START
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.white))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//camille_lemke_wrowing_2016_17.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//camille_lemke_wrowing_2016_17.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 30.0),
+                            Column(children: <Widget>[
+                              Text("Camille Lemke",
+                                style: TextStyle(
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Text("Asst. Coach",
+                                  style: TextStyle(
+                                      fontSize: 25.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                            ]),
+                          ])),
+                      // CAMILLE LEMKE END
+
+                      // KAM COON START
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.white))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2019/6/21/Coon.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2019/6/21/Coon.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 30.0),
+                            Column(children: <Widget>[
+                              Text("Kam Coon",
+                                style: TextStyle(
+                                    fontSize: 27,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Text("Asst. Coach",
+                                  style: TextStyle(
+                                      fontSize: 25.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                            ]),
+                          ])),
+                    ])),
+                // KAM COON END
+
+                ////////////
+                // STATS //
+                ///////////
+                Container(
+                  child: Center(child: Text("STATS COMING SOON", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold))),
+                  color: Colors.black,
+                )
               ],
             ),
           ),
