@@ -38,27 +38,32 @@ import 'package:flutter/foundation.dart';
 import 'playerPortal.dart';
 import 'pageview.dart';
 import 'instaPage.dart';
-import 'settingsPage.dart';
 
 //////////////////////////
 // WEB SCRAPING IMPORTS //
 //////////////////////////
 import 'package:http/http.dart';
 import 'webscrap1.dart' as webscraper1;
+import 'streamLaunch.dart';
 import 'wbskScheduleScrap.dart' as wbskScheduleScrap;
 import 'sbScheduleScrap.dart' as sbScheduleScrap;
 import 'wswimScheduleScrap.dart' as wswimScheduleScrap;
 import 'volleyballScheduleScrap.dart' as vbScheduleScrap;
 import 'wtenScheduleScrap.dart' as wtenScheduleScrap;
-import 'wxcScheduleScrap.dart' as wxcScheduleScrap;
-import 'wgolfScheduleScrap.dart' as wgolfScheduleScrap;
-import 'crewScheduleScrap.dart' as crewScheduleScrap;
-import 'wtfScheduleScrap.dart' as wtfScheduleScrap;
-
-///////////////////////////
-// WEB SCRAPING IMPORTS // => STATS
-//////////////////////////
 import 'wsocStatsScrap.dart' as wsocStatsScrap;
+
+import 'mswimScheduleScrap.dart' as mswimScheduleScrap;
+import 'baseScheduleScrap.dart' as baseScheduleScrap;
+import 'mbskScheduleScrap.dart' as mbskScheduleScrap;
+import 'mxcScheduleScrap.dart' as mxcScheduleScrap;
+import 'footballScheduleScrap.dart' as footballScheduleScrap;
+import 'mgolfScheduleScrap.dart' as mgolfScheduleScrap;
+import 'msocScheduleScrap.dart' as msocScheduleScrap;
+import 'mtenScheduleScrap.dart' as mtenScheduleScrap;
+import 'mtfScheduleScrap.dart' as mtfScheduleScrap;
+import 'msocStatsPage.dart' as msocStatsScrap;
+import 'mbskStatsScrap.dart' as mbskStatsScrap;
+import 'footballStatsScrap.dart' as footballStatsScrap;
 import 'vbStatsScrap.dart' as vbStatsScrap;
 import 'wbskStatsScrap.dart' as wbskStatsScrap;
 
@@ -85,6 +90,18 @@ Future main(List<String> arguments) async
   // STAT SCRAPERS //
   ///////////////////
   print(await wsocStatsScrap.initiate(Client()));
+  print(await mswimScheduleScrap.initiate(Client()));
+  print(await baseScheduleScrap.initiate(Client()));
+  print(await mbskScheduleScrap.initiate(Client()));
+  print(await mxcScheduleScrap.initiate(Client()));
+  print(await footballScheduleScrap.initiate(Client()));
+  print(await mgolfScheduleScrap.initiate(Client()));
+  print(await msocScheduleScrap.initiate(Client()));
+  print(await mtenScheduleScrap.initiate(Client()));
+  print(await mtfScheduleScrap.initiate(Client()));
+  print(await msocStatsScrap.initiate(Client()));
+  print(await mbskStatsScrap.initiate(Client()));
+  print(await footballStatsScrap.initiate(Client()));
   print(await vbStatsScrap.initiate(Client()));
   print(await wbskStatsScrap.initiate(Client()));
 
@@ -100,13 +117,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: "PLU ATHLETICS",
-        darkTheme: ThemeData(
-          brightness: Brightness.dark,
-        ),
-        theme: ThemeData(
-            fontFamily: 'Quicksand',),
-       // brightness: Brightness.light,),
-        //primaryColor: Colors.amberAccent),
+        theme: ThemeData(fontFamily: 'Quicksand'),
         home: HomePage(),
     );
   }
@@ -372,7 +383,6 @@ class _HomePage extends State<HomePage>
             ListTile(
               title: Text("PLU Portal", style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold, fontFamily: 'Quicksand'),),
               onTap: () {
-                //Navigator.pop(context);
                 Navigator.push(context, MaterialPageRoute(builder: (context) => PlayerPortalPage()));
               }
             ),
@@ -406,9 +416,6 @@ class _HomePage extends State<HomePage>
           delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index)
               {
-                // onTap: (context) {
-                //   Navigator.push(context, MaterialPageRoute (builder: (context) => SecondPage()));
-                // };
                 return Container(
                  // height: 600.0,
                   alignment: Alignment.center,
@@ -437,46 +444,16 @@ class _DrawerClipper extends CustomClipper<Path>
   {
     Path path = Path();
 
-   // path.lineTo(size.width, 2);
-
     path.moveTo(50, 0);
     path.quadraticBezierTo(0, size.height/2, 50, size.height);
 
-
-    //path.quadraticBezierTo(size.width * 5, size.height/2, 0, size.height);
-
-   // path.lineTo();
-
     path.lineTo(size.width, size.height);
     path.lineTo(size.width, 0);
-
-
-   // path.lineTo(size.width, size.height);
-   // path.lineTo(size.width, 0);
-
-    //path.lineTo(0, size.height/2);
-    // path.lineTo(50, size.height);
-   // path.lineTo(size.width, 0);
 
     return path;
   }
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => true;
-}
 
-// class HomePage extends StatefulWidget
-// {
-//   @override
-//   _HomePageState createState() => _HomePageState();
-// }
-//
-// class _HomePageState extends State<HomePage> {
-//   @override
-//   Widget build (BuildContext context)
-//   {
-//     return Scaffold(
-//       appBar: AppBar(title: Text('PLU Athletics')),
-//     );
-//   }
-// }
+}

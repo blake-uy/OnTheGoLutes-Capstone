@@ -31,6 +31,7 @@ class Info
   String opponentLink;
 
   Info(this.opponent, this.opponentLink);
+//Info.fromJson(Map<String, dynamic> json) : 'opponent' = json['Opponent'], 'link' = json['Link'];
 }
 
 ///////////////////////////////////////////
@@ -49,6 +50,14 @@ Future initiate(BaseClient client) async
   // HTML Parser //
   /////////////////
   var document = parse(response.body);
+
+  //List<Element> teamStatsBar = document.getElementsByClassName('flex flex-wrap large-flex-no-wrap row');
+  // List<Element> teamStatsBar = document.getElementsByClassName('ul.flexflex-wraplarge-flex-no-wraprow > li.large-flex-item-1flexflex-columnflex-justify-centerflex-align-centerx-small-3columns');
+  //
+  // for (var i = 0; i < teamStatsBar.length; i++)
+  //   {
+  //     print(teamStatsBar[i]);
+  //   }
 
   List links = document.querySelectorAll('div.sidearm-schedule-game-opponent-name > a');
 
@@ -69,11 +78,21 @@ Future initiate(BaseClient client) async
   ////////////////////////////////////////////////////////////////////////
   // Add "values" aka data from Dictionary (linkMap) to gameInfo (list) //
   ////////////////////////////////////////////////////////////////////////
+  //print(logos);
+
+  // Info.fromJson(Map<String, dynamic> json) : 'opponent' = json['Opponent'], 'link' = json['Link'];
+
+  //print("MAP");
+  //print(linkMap.length);
+  //print(linkMap[0].values);
+
   int x = 0;
   for (var i in linkMap)
   {
+
     gameInfo.addAll(linkMap[x].values);
     x++;
+
   }
 
   /////////////////////////////////////////////////////////////////////
@@ -102,6 +121,11 @@ Future initiate(BaseClient client) async
     dayNumOnly.add(tempList[1]);
     timeOnly.add(tempList[2]);
   }
+  //print("WOMEN'S SOFTBALL GAME INFO");
+  // print(justOpponents);
+  // print(dateAndTime);
+  //print(gameInfo);
+  //return json.encode(linkMap);
 }
 
 

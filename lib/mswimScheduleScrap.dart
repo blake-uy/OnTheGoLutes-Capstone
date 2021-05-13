@@ -35,7 +35,7 @@ class Info {
       );
     }
 
-    print("MAP");
+    //print("MAP");
 
     int x = 0;
     for (var i in linkMap){
@@ -52,5 +52,5 @@ class Info {
 
       dateAndTime.add(tempList[1]);
     }
-    print("MEN'S SWIM GAME INFO");
+    //print("MEN'S SWIM GAME INFO");
   }
