@@ -164,47 +164,100 @@ class _SliverAppBarWithTabs extends State<MBSKPage> with SingleTickerProviderSta
                         }
                     )
                 ),
-                Container(
-                    color: Colors.black,
-                    child: ListView.builder(
-                        scrollDirection: Axis.vertical,
-                        itemCount: bskCoaches.length,
-                        itemBuilder: (BuildContext context, int index)
-                        {
-                          return Container (
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                border: Border(bottom: BorderSide(color: Colors.grey, width: 2.0)),
-                              ),
-                              child: Row(
-                                  children: <Widget> [
-                                    Container(
-                                      height: 120.0,
-                                      width: 100.0,
-                                      margin: EdgeInsets.all(5.0),
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                            image: bskCoaches[index].image,
-                                          )
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 15.0,
-                                    ),
-                                    Center(child: Column(
-                                        children: <Widget>[
-                                          Text(bskCoaches[index].name, style: TextStyle(fontSize: 26.0, color: Colors.white), textAlign: TextAlign.center,),
-                                          Text(bskCoaches[index].title, style: TextStyle(fontSize: 20.0, color: Colors.white), textAlign: TextAlign.center,),
 
-                                        ]
-                                    )
-                                    ),
-                                  ]
-                              )
-                          );
-                        }
-                    )
-                ),
+                Container(
+                  //height: 800.0,
+                    color: Colors.black,
+                    child: ListView(scrollDirection: Axis.vertical, children: <Widget>
+                    [
+                      // SARA GRIFFIN START
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                            // color: Colors.grey[400],
+                              color: Colors.black,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.transparent))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//murray.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2018/4/24//murray.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 44.0),
+                            Column(children: <Widget>[
+                              Text("Chad Murray",
+                                  style: TextStyle(
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              Text("Head Coach",
+                                  style: TextStyle(
+                                      fontSize: 25.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              Text("253-535-8452",
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                              Text("murraycg@plu.edu",
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white))
+                            ]),
+                          ])),
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                            //color: Colors.grey[400],
+                              border: Border(
+                                  bottom: BorderSide(color: Colors.white))),
+                          child: Column(children: <Widget>[
+                            Text(
+                                "About Chad: Chad Murray joined the Pacific Lutheran University staff in April of 2017 as the head men's basketball coach."
+                                "Under Chad's leadership, I look forward to seeing men's basketball continue to be a top tier program in the Northwest Conference, said Athletic Director Laurie Turner."
+                                "With Chad's breadth of experience serving as both an assistant and head coach at Division III programs, as well as his West Coast ties, will allow him to hit the ground running.",
+                                style: TextStyle(fontSize: 15.0, color: Colors.white)),
+
+                          ])),
+                      // SARA GRIFFIN END
+
+                      // JEANKIE ACZON START
+                      Container(
+                          padding: EdgeInsets.all(15.0),
+                          decoration: BoxDecoration(
+                              color: Colors.black,
+                              border: Border(
+                                  bottom:
+                                  BorderSide(color: Colors.white))),
+                          child: Row(children: <Widget>[
+                            FadeInImage(
+                                placeholder: NetworkImage(
+                                    "https://golutes.com/images/2020/10/12/schilter.jpg?width=300"),
+                                image: NetworkImage(
+                                    "https://golutes.com/images/2020/10/12/schilter.jpg?width=300"),
+                                height: 200.0),
+                            SizedBox(width: 30.0),
+                            Column(children: <Widget>[
+                              Text("Alex Schilter",
+                                style: TextStyle(
+                                    fontSize: 32.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                              Text("Asst. Coach",
+                                  style: TextStyle(
+                                      fontSize: 25.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
+                            ]),
+                          ])),
+                    ])),
+
                 Table(
                   // border: TableBorder.all(color: Colors.white60),
                     columnWidths: <int, TableColumnWidth> {
@@ -1011,15 +1064,4 @@ List<BskPlayers> bskPlayers = <BskPlayers>[
 
 ];
 
-class BskCoaches
-{
-  BskCoaches({this.name, this.title, this.image});
-  final String name;
-  final String title;
-  final NetworkImage image;
-}
 
-List<BskCoaches> bskCoaches = <BskCoaches>[
-  BskCoaches(name: "Chad Murray", title: "Head Coach", image: NetworkImage('https://golutes.com/images/2018/4/24//murray.jpg?width=80')),
-  BskCoaches(name: "Alex Schilter", title: "Assistant Coach", image: NetworkImage('https://golutes.com/images/2020/10/12/schilter.jpg?width=80')),
-];

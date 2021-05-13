@@ -221,7 +221,8 @@ class _SliverAppBarWithTabs extends State<MSOCPage> with SingleTickerProviderSta
                                   bottom: BorderSide(color: Colors.white))),
                           child: Column(children: <Widget>[
                             Text(
-                                "About Seth: Current technical director for the locally based soccer club WPFC. Was named Head Coach for the Lutes back in 2015. Has lead the program to a 40-2-6 record in 6 years.",
+                                "About John: The winningest coach in program history, John Yorke heads into his 19th season as head coach of Pacific Lutheran University in 2020 with an overall mark of 206-125-23. "
+                                    "A six-time Northwest Conference Coach of the Year (2003, 2009, 2011, 2015, 2018, and 2019), Yorke led the 2011 Lutes to a 15-4 overall record, securing the Northwest Conference title for the first time since 1992 while qualifying for the NCAA Division III Tournament for the first time in program history.",
                                 style: TextStyle(fontSize: 15.0, color: Colors.white)),
 
                           ])),
@@ -279,12 +280,13 @@ class _SliverAppBarWithTabs extends State<MSOCPage> with SingleTickerProviderSta
                                     fontSize: 25.0,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
+                                  textAlign: TextAlign.center,
                               ),
                               Text("Asst. Coach",
                                   style: TextStyle(
                                       fontSize: 20.0,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                                      color: Colors.white), textAlign: TextAlign.center),
                             ]),
                           ])),
 

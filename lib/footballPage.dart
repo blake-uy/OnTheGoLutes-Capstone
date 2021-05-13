@@ -227,7 +227,9 @@ class _SliverAppBarWithTabs extends State<FBPage> with SingleTickerProviderState
                                   bottom: BorderSide(color: Colors.white))),
                           child: Column(children: <Widget>[
                             Text(
-                                "About Seth: Current technical director for the locally based soccer club WPFC. Was named Head Coach for the Lutes back in 2015. Has lead the program to a 40-2-6 record in 6 years.",
+                                "About Brant: The Pacific Lutheran University athletic department tabbed Brant McAdams as Head Coach of the Lute football team on Feb. 20, 2018, becoming just the 10th head coach in the program's storied 93-year history. "
+                                    "The hire is a result of an extensive nationwide search, guided by Spelman Johnson consulting firm."
+                                    "McAdam's first season at the helm saw the Lutes defeat eventual Southern California Intercollegiate Athletic Conference Champion Claremont-Mudd-Scripps Colleges in the home opener at Sparks Stadium.",
                                 style: TextStyle(fontSize: 15.0, color: Colors.white)),
 
                           ])),
@@ -413,7 +415,7 @@ class _SliverAppBarWithTabs extends State<FBPage> with SingleTickerProviderState
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               ),
-                              Text("D- Line Coach",
+                              Text("D - Line Coach",
                                   style: TextStyle(
                                       fontSize: 20.0,
                                       fontWeight: FontWeight.bold,
