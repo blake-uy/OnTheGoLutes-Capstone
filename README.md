@@ -6,3 +6,6 @@ Worked in conjunction with Emily Sugimoto, a graduating B.A. Computer Science st
 
 
 ![Screenshot (80)](https://user-images.githubusercontent.com/58790294/123345560-32e29a00-d50b-11eb-9f8f-f1d20c20db1b.png)
+
+![Screenshot (185)](https://user-images.githubusercontent.com/58790294/123345591-45f56a00-d50b-11eb-89fb-51f5876d8313.png)
+
