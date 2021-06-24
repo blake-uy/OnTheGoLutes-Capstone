@@ -1,4 +1,4 @@
-# capstone3
+# On The Go Lutes (Capstone)
 
 A new Flutter project.
 
