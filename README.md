@@ -7,8 +7,10 @@ Worked in conjunction with Emily Sugimoto, a graduating B.A. Computer Science st
 # Screenshot of what the UI looks like:
 ![Screenshot (80)](https://user-images.githubusercontent.com/58790294/123345560-32e29a00-d50b-11eb-9f8f-f1d20c20db1b.png)
 
+# Flow Diagram of the Home Tool Bar on the left top corner
 ![Screenshot (185)](https://user-images.githubusercontent.com/58790294/123345591-45f56a00-d50b-11eb-89fb-51f5876d8313.png)
 
+# Flow Diagram of the application for an individual sport
 ![Screenshot (183)](https://user-images.githubusercontent.com/58790294/123345611-560d4980-d50b-11eb-8cf1-0432400587bc.png)
 
 
